@@ -1,0 +1,12 @@
+E:\MinimalChatApp\MinimalChatApp.Model\bin\Debug\net8.0\MinimalChatApp.Model.deps.json
+E:\MinimalChatApp\MinimalChatApp.Model\bin\Debug\net8.0\MinimalChatApp.Model.dll
+E:\MinimalChatApp\MinimalChatApp.Model\bin\Debug\net8.0\MinimalChatApp.Model.pdb
+E:\MinimalChatApp\MinimalChatApp.Model\obj\Debug\net8.0\MinimalChatApp.Model.GeneratedMSBuildEditorConfig.editorconfig
+E:\MinimalChatApp\MinimalChatApp.Model\obj\Debug\net8.0\MinimalChatApp.Model.AssemblyInfoInputs.cache
+E:\MinimalChatApp\MinimalChatApp.Model\obj\Debug\net8.0\MinimalChatApp.Model.AssemblyInfo.cs
+E:\MinimalChatApp\MinimalChatApp.Model\obj\Debug\net8.0\MinimalChatApp.Model.csproj.CoreCompileInputs.cache
+E:\MinimalChatApp\MinimalChatApp.Model\obj\Debug\net8.0\MinimalChatApp.Model.dll
+E:\MinimalChatApp\MinimalChatApp.Model\obj\Debug\net8.0\refint\MinimalChatApp.Model.dll
+E:\MinimalChatApp\MinimalChatApp.Model\obj\Debug\net8.0\MinimalChatApp.Model.pdb
+E:\MinimalChatApp\MinimalChatApp.Model\obj\Debug\net8.0\ref\MinimalChatApp.Model.dll
+E:\MinimalChatApp\MinimalChatApp.Model\obj\Debug\net8.0\MinimalChatApp.Model.csproj.AssemblyReference.cache

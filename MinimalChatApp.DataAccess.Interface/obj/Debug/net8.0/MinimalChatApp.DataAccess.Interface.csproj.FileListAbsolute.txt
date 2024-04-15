@@ -1,0 +1,15 @@
+E:\MinimalChatApp\MinimalChatApp.DataAccess.Interface\bin\Debug\net8.0\MinimalChatApp.DataAccess.Interface.deps.json
+E:\MinimalChatApp\MinimalChatApp.DataAccess.Interface\bin\Debug\net8.0\MinimalChatApp.DataAccess.Interface.dll
+E:\MinimalChatApp\MinimalChatApp.DataAccess.Interface\bin\Debug\net8.0\MinimalChatApp.DataAccess.Interface.pdb
+E:\MinimalChatApp\MinimalChatApp.DataAccess.Interface\bin\Debug\net8.0\MinimalChatApp.Model.dll
+E:\MinimalChatApp\MinimalChatApp.DataAccess.Interface\bin\Debug\net8.0\MinimalChatApp.Model.pdb
+E:\MinimalChatApp\MinimalChatApp.DataAccess.Interface\obj\Debug\net8.0\MinimalChatApp.DataAccess.Interface.csproj.AssemblyReference.cache
+E:\MinimalChatApp\MinimalChatApp.DataAccess.Interface\obj\Debug\net8.0\MinimalChatApp.DataAccess.Interface.GeneratedMSBuildEditorConfig.editorconfig
+E:\MinimalChatApp\MinimalChatApp.DataAccess.Interface\obj\Debug\net8.0\MinimalChatApp.DataAccess.Interface.AssemblyInfoInputs.cache
+E:\MinimalChatApp\MinimalChatApp.DataAccess.Interface\obj\Debug\net8.0\MinimalChatApp.DataAccess.Interface.AssemblyInfo.cs
+E:\MinimalChatApp\MinimalChatApp.DataAccess.Interface\obj\Debug\net8.0\MinimalChatApp.DataAccess.Interface.csproj.CoreCompileInputs.cache
+E:\MinimalChatApp\MinimalChatApp.DataAccess.Interface\obj\Debug\net8.0\MinimalC.4D69CE24.Up2Date
+E:\MinimalChatApp\MinimalChatApp.DataAccess.Interface\obj\Debug\net8.0\MinimalChatApp.DataAccess.Interface.dll
+E:\MinimalChatApp\MinimalChatApp.DataAccess.Interface\obj\Debug\net8.0\refint\MinimalChatApp.DataAccess.Interface.dll
+E:\MinimalChatApp\MinimalChatApp.DataAccess.Interface\obj\Debug\net8.0\MinimalChatApp.DataAccess.Interface.pdb
+E:\MinimalChatApp\MinimalChatApp.DataAccess.Interface\obj\Debug\net8.0\ref\MinimalChatApp.DataAccess.Interface.dll

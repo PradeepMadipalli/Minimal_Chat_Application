@@ -1,0 +1,427 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Minimal\\MinimalChatApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{808F5157-3AA0-4933-A8C7-54B8549A69AC}|MinimialChatApp.Api\\MinimialChatApp.Api.csproj|d:\\minimal\\minimalchatapp\\minimialchatapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{808F5157-3AA0-4933-A8C7-54B8549A69AC}|MinimialChatApp.Api\\MinimialChatApp.Api.csproj|solutionrelative:minimialchatapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{808F5157-3AA0-4933-A8C7-54B8549A69AC}|MinimialChatApp.Api\\MinimialChatApp.Api.csproj|d:\\minimal\\minimalchatapp\\minimialchatapp.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{808F5157-3AA0-4933-A8C7-54B8549A69AC}|MinimialChatApp.Api\\MinimialChatApp.Api.csproj|solutionrelative:minimialchatapp.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{407E1A0C-5565-436F-97E4-7F181F836BD6}|MinimalChatApp.Common\\MinimalChatApp.Common.csproj|d:\\minimal\\minimalchatapp\\minimalchatapp.common\\requestloggingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{407E1A0C-5565-436F-97E4-7F181F836BD6}|MinimalChatApp.Common\\MinimalChatApp.Common.csproj|solutionrelative:minimalchatapp.common\\requestloggingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D8BB57-3F93-4E71-A6C3-A6C3E4F71A0D}|MinimalChatApp.DataAccess.Interface\\MinimalChatApp.DataAccess.Interface.csproj|d:\\minimal\\minimalchatapp\\minimalchatapp.dataaccess.interface\\iloginrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D8BB57-3F93-4E71-A6C3-A6C3E4F71A0D}|MinimalChatApp.DataAccess.Interface\\MinimalChatApp.DataAccess.Interface.csproj|solutionrelative:minimalchatapp.dataaccess.interface\\iloginrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80D8BB57-3F93-4E71-A6C3-A6C3E4F71A0D}|MinimalChatApp.DataAccess.Interface\\MinimalChatApp.DataAccess.Interface.csproj|d:\\minimal\\minimalchatapp\\minimalchatapp.dataaccess.interface\\imessagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80D8BB57-3F93-4E71-A6C3-A6C3E4F71A0D}|MinimalChatApp.DataAccess.Interface\\MinimalChatApp.DataAccess.Interface.csproj|solutionrelative:minimalchatapp.dataaccess.interface\\imessagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9DD795C-4B98-486A-8EB2-81AF4D8CCD8B}|MinimalChatApp.Model\\MinimalChatApp.Model.csproj|d:\\minimal\\minimalchatapp\\minimalchatapp.model\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9DD795C-4B98-486A-8EB2-81AF4D8CCD8B}|MinimalChatApp.Model\\MinimalChatApp.Model.csproj|solutionrelative:minimalchatapp.model\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{808F5157-3AA0-4933-A8C7-54B8549A69AC}|MinimialChatApp.Api\\MinimialChatApp.Api.csproj|d:\\minimal\\minimalchatapp\\minimialchatapp.api\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{808F5157-3AA0-4933-A8C7-54B8549A69AC}|MinimialChatApp.Api\\MinimialChatApp.Api.csproj|solutionrelative:minimialchatapp.api\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8FB409D-A8B0-4974-B155-E8D676C93760}|MinimalChatApp.Business\\MinimalChatApp.Business.csproj|d:\\minimal\\minimalchatapp\\minimalchatapp.business\\loginservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8FB409D-A8B0-4974-B155-E8D676C93760}|MinimalChatApp.Business\\MinimalChatApp.Business.csproj|solutionrelative:minimalchatapp.business\\loginservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0793287-C774-4D8B-AB24-8DCF3EBD0BAC}|MinimalChatApp.Business.Interface\\MinimalChatApp.Business.Interface.csproj|d:\\minimal\\minimalchatapp\\minimalchatapp.business.interface\\iloginservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0793287-C774-4D8B-AB24-8DCF3EBD0BAC}|MinimalChatApp.Business.Interface\\MinimalChatApp.Business.Interface.csproj|solutionrelative:minimalchatapp.business.interface\\iloginservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9DD795C-4B98-486A-8EB2-81AF4D8CCD8B}|MinimalChatApp.Model\\MinimalChatApp.Model.csproj|d:\\minimal\\minimalchatapp\\minimalchatapp.model\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9DD795C-4B98-486A-8EB2-81AF4D8CCD8B}|MinimalChatApp.Model\\MinimalChatApp.Model.csproj|solutionrelative:minimalchatapp.model\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31847D49-7DCE-4049-A96B-7302E1283A3F}|MinimalChatApp.DataAccess\\MinimalChatApp.DataAccess.csproj|d:\\minimal\\minimalchatapp\\minimalchatapp.dataaccess\\loginrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31847D49-7DCE-4049-A96B-7302E1283A3F}|MinimalChatApp.DataAccess\\MinimalChatApp.DataAccess.csproj|solutionrelative:minimalchatapp.dataaccess\\loginrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{407E1A0C-5565-436F-97E4-7F181F836BD6}|MinimalChatApp.Common\\MinimalChatApp.Common.csproj|d:\\minimal\\minimalchatapp\\minimalchatapp.common\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{407E1A0C-5565-436F-97E4-7F181F836BD6}|MinimalChatApp.Common\\MinimalChatApp.Common.csproj|solutionrelative:minimalchatapp.common\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{407E1A0C-5565-436F-97E4-7F181F836BD6}|MinimalChatApp.Common\\MinimalChatApp.Common.csproj|d:\\minimal\\minimalchatapp\\minimalchatapp.common\\chatdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{407E1A0C-5565-436F-97E4-7F181F836BD6}|MinimalChatApp.Common\\MinimalChatApp.Common.csproj|solutionrelative:minimalchatapp.common\\chatdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9DD795C-4B98-486A-8EB2-81AF4D8CCD8B}|MinimalChatApp.Model\\MinimalChatApp.Model.csproj|d:\\minimal\\minimalchatapp\\minimalchatapp.model\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9DD795C-4B98-486A-8EB2-81AF4D8CCD8B}|MinimalChatApp.Model\\MinimalChatApp.Model.csproj|solutionrelative:minimalchatapp.model\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{808F5157-3AA0-4933-A8C7-54B8549A69AC}|MinimialChatApp.Api\\MinimialChatApp.Api.csproj|d:\\minimal\\minimalchatapp\\minimialchatapp.api\\controllers\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{808F5157-3AA0-4933-A8C7-54B8549A69AC}|MinimialChatApp.Api\\MinimialChatApp.Api.csproj|solutionrelative:minimialchatapp.api\\controllers\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{808F5157-3AA0-4933-A8C7-54B8549A69AC}|MinimialChatApp.Api\\MinimialChatApp.Api.csproj|d:\\minimal\\minimalchatapp\\minimialchatapp.api\\controllers\\logscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{808F5157-3AA0-4933-A8C7-54B8549A69AC}|MinimialChatApp.Api\\MinimialChatApp.Api.csproj|solutionrelative:minimialchatapp.api\\controllers\\logscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31847D49-7DCE-4049-A96B-7302E1283A3F}|MinimalChatApp.DataAccess\\MinimalChatApp.DataAccess.csproj|d:\\minimal\\minimalchatapp\\minimalchatapp.dataaccess\\messagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31847D49-7DCE-4049-A96B-7302E1283A3F}|MinimalChatApp.DataAccess\\MinimalChatApp.DataAccess.csproj|solutionrelative:minimalchatapp.dataaccess\\messagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8FB409D-A8B0-4974-B155-E8D676C93760}|MinimalChatApp.Business\\MinimalChatApp.Business.csproj|d:\\minimal\\minimalchatapp\\minimalchatapp.business\\messageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8FB409D-A8B0-4974-B155-E8D676C93760}|MinimalChatApp.Business\\MinimalChatApp.Business.csproj|solutionrelative:minimalchatapp.business\\messageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0793287-C774-4D8B-AB24-8DCF3EBD0BAC}|MinimalChatApp.Business.Interface\\MinimalChatApp.Business.Interface.csproj|d:\\minimal\\minimalchatapp\\minimalchatapp.business.interface\\imessageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0793287-C774-4D8B-AB24-8DCF3EBD0BAC}|MinimalChatApp.Business.Interface\\MinimalChatApp.Business.Interface.csproj|solutionrelative:minimalchatapp.business.interface\\imessageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0793287-C774-4D8B-AB24-8DCF3EBD0BAC}|MinimalChatApp.Business.Interface\\MinimalChatApp.Business.Interface.csproj|d:\\minimal\\minimalchatapp\\minimalchatapp.business.interface\\minimalchatapp.business.interface.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C0793287-C774-4D8B-AB24-8DCF3EBD0BAC}|MinimalChatApp.Business.Interface\\MinimalChatApp.Business.Interface.csproj|solutionrelative:minimalchatapp.business.interface\\minimalchatapp.business.interface.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9DD795C-4B98-486A-8EB2-81AF4D8CCD8B}|MinimalChatApp.Model\\MinimalChatApp.Model.csproj|d:\\minimal\\minimalchatapp\\minimalchatapp.model\\getusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9DD795C-4B98-486A-8EB2-81AF4D8CCD8B}|MinimalChatApp.Model\\MinimalChatApp.Model.csproj|solutionrelative:minimalchatapp.model\\getusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9DD795C-4B98-486A-8EB2-81AF4D8CCD8B}|MinimalChatApp.Model\\MinimalChatApp.Model.csproj|d:\\minimal\\minimalchatapp\\minimalchatapp.model\\logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9DD795C-4B98-486A-8EB2-81AF4D8CCD8B}|MinimalChatApp.Model\\MinimalChatApp.Model.csproj|solutionrelative:minimalchatapp.model\\logs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{808F5157-3AA0-4933-A8C7-54B8549A69AC}|MinimialChatApp.Api\\MinimialChatApp.Api.csproj|d:\\minimal\\minimalchatapp\\minimialchatapp.api\\minimialchatapp.api.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{808F5157-3AA0-4933-A8C7-54B8549A69AC}|MinimialChatApp.Api\\MinimialChatApp.Api.csproj|solutionrelative:minimialchatapp.api\\minimialchatapp.api.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31847D49-7DCE-4049-A96B-7302E1283A3F}|MinimalChatApp.DataAccess\\MinimalChatApp.DataAccess.csproj|d:\\minimal\\minimalchatapp\\minimalchatapp.dataaccess\\minimalchatapp.dataaccess.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{31847D49-7DCE-4049-A96B-7302E1283A3F}|MinimalChatApp.DataAccess\\MinimalChatApp.DataAccess.csproj|solutionrelative:minimalchatapp.dataaccess\\minimalchatapp.dataaccess.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9DD795C-4B98-486A-8EB2-81AF4D8CCD8B}|MinimalChatApp.Model\\MinimalChatApp.Model.csproj|d:\\minimal\\minimalchatapp\\minimalchatapp.model\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9DD795C-4B98-486A-8EB2-81AF4D8CCD8B}|MinimalChatApp.Model\\MinimalChatApp.Model.csproj|solutionrelative:minimalchatapp.model\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LoginRepository.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.DataAccess\\LoginRepository.cs",
+              "RelativeDocumentMoniker": "MinimalChatApp.DataAccess\\LoginRepository.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.DataAccess\\LoginRepository.cs",
+              "RelativeToolTip": "MinimalChatApp.DataAccess\\LoginRepository.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAuwB4AAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T06:03:07.654Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ILoginRepository.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.DataAccess.Interface\\ILoginRepository.cs",
+              "RelativeDocumentMoniker": "MinimalChatApp.DataAccess.Interface\\ILoginRepository.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.DataAccess.Interface\\ILoginRepository.cs",
+              "RelativeToolTip": "MinimalChatApp.DataAccess.Interface\\ILoginRepository.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAlwA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T05:57:49.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RequestLoggingMiddleware.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Common\\RequestLoggingMiddleware.cs",
+              "RelativeDocumentMoniker": "MinimalChatApp.Common\\RequestLoggingMiddleware.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Common\\RequestLoggingMiddleware.cs",
+              "RelativeToolTip": "MinimalChatApp.Common\\RequestLoggingMiddleware.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T09:53:19.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Message.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Model\\Message.cs",
+              "RelativeDocumentMoniker": "MinimalChatApp.Model\\Message.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Model\\Message.cs",
+              "RelativeToolTip": "MinimalChatApp.Model\\Message.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAIA7wBsAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T10:19:11.855Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "MinimialChatApp.Api\\Controllers\\LoginController.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "MinimialChatApp.Api\\Controllers\\LoginController.cs",
+              "ViewState": "AQIAADgAAAAAAAAAAAAkwDsAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T04:07:31.594Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "MinimialChatApp.Api\\appsettings.json",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\appsettings.json",
+              "RelativeToolTip": "MinimialChatApp.Api\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-15T04:53:50.321Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\Program.cs",
+              "RelativeDocumentMoniker": "MinimialChatApp.Api\\Program.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\Program.cs",
+              "RelativeToolTip": "MinimialChatApp.Api\\Program.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAAACsAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T04:09:48.062Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IMessageRepository.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.DataAccess.Interface\\IMessageRepository.cs",
+              "RelativeDocumentMoniker": "MinimalChatApp.DataAccess.Interface\\IMessageRepository.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.DataAccess.Interface\\IMessageRepository.cs",
+              "RelativeToolTip": "MinimalChatApp.DataAccess.Interface\\IMessageRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T06:00:02.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LoginService.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Business\\LoginService.cs",
+              "RelativeDocumentMoniker": "MinimalChatApp.Business\\LoginService.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Business\\LoginService.cs",
+              "RelativeToolTip": "MinimalChatApp.Business\\LoginService.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAABUAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T11:18:30.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ILoginServices.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Business.Interface\\ILoginServices.cs",
+              "RelativeDocumentMoniker": "MinimalChatApp.Business.Interface\\ILoginServices.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Business.Interface\\ILoginServices.cs",
+              "RelativeToolTip": "MinimalChatApp.Business.Interface\\ILoginServices.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAAA8AAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T06:19:38.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AppUser.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Model\\AppUser.cs",
+              "RelativeDocumentMoniker": "MinimalChatApp.Model\\AppUser.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Model\\AppUser.cs",
+              "RelativeToolTip": "MinimalChatApp.Model\\AppUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T06:52:44.552Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ChatHub.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Common\\ChatHub.cs",
+              "RelativeDocumentMoniker": "MinimalChatApp.Common\\ChatHub.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Common\\ChatHub.cs",
+              "RelativeToolTip": "MinimalChatApp.Common\\ChatHub.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T05:47:14.724Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ChatDBContext.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Common\\ChatDBContext.cs",
+              "RelativeDocumentMoniker": "MinimalChatApp.Common\\ChatDBContext.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Common\\ChatDBContext.cs",
+              "RelativeToolTip": "MinimalChatApp.Common\\ChatDBContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-11T10:18:04.963Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Users.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Model\\Users.cs",
+              "RelativeDocumentMoniker": "MinimalChatApp.Model\\Users.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Model\\Users.cs",
+              "RelativeToolTip": "MinimalChatApp.Model\\Users.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T10:19:31.132Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MessageController.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\Controllers\\MessageController.cs",
+              "RelativeDocumentMoniker": "MinimialChatApp.Api\\Controllers\\MessageController.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\Controllers\\MessageController.cs",
+              "RelativeToolTip": "MinimialChatApp.Api\\Controllers\\MessageController.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAAABwAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T09:03:13.835Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "LogsController.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\Controllers\\LogsController.cs",
+              "RelativeDocumentMoniker": "MinimialChatApp.Api\\Controllers\\LogsController.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\Controllers\\LogsController.cs",
+              "RelativeToolTip": "MinimialChatApp.Api\\Controllers\\LogsController.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAIwBoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T11:11:49.552Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MessageRepository.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.DataAccess\\MessageRepository.cs",
+              "RelativeDocumentMoniker": "MinimalChatApp.DataAccess\\MessageRepository.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.DataAccess\\MessageRepository.cs",
+              "RelativeToolTip": "MinimalChatApp.DataAccess\\MessageRepository.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAAAAcAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T06:09:06.036Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "MessageService.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Business\\MessageService.cs",
+              "RelativeDocumentMoniker": "MinimalChatApp.Business\\MessageService.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Business\\MessageService.cs",
+              "RelativeToolTip": "MinimalChatApp.Business\\MessageService.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAADoAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T08:22:16.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IMessageService.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Business.Interface\\IMessageService.cs",
+              "RelativeDocumentMoniker": "MinimalChatApp.Business.Interface\\IMessageService.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Business.Interface\\IMessageService.cs",
+              "RelativeToolTip": "MinimalChatApp.Business.Interface\\IMessageService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAABmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T07:25:46.633Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "MinimalChatApp.Business.Interface.csproj",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Business.Interface\\MinimalChatApp.Business.Interface.csproj",
+              "RelativeDocumentMoniker": "MinimalChatApp.Business.Interface\\MinimalChatApp.Business.Interface.csproj",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Business.Interface\\MinimalChatApp.Business.Interface.csproj",
+              "RelativeToolTip": "MinimalChatApp.Business.Interface\\MinimalChatApp.Business.Interface.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-04-11T10:35:57.691Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "GetUsers.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Model\\GetUsers.cs",
+              "RelativeDocumentMoniker": "MinimalChatApp.Model\\GetUsers.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Model\\GetUsers.cs",
+              "RelativeToolTip": "MinimalChatApp.Model\\GetUsers.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T07:03:52.913Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Logs.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Model\\Logs.cs",
+              "RelativeDocumentMoniker": "MinimalChatApp.Model\\Logs.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Model\\Logs.cs",
+              "RelativeToolTip": "MinimalChatApp.Model\\Logs.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T07:03:42.772Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "MinimialChatApp.Api",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\MinimialChatApp.Api.csproj",
+              "RelativeDocumentMoniker": "MinimialChatApp.Api\\MinimialChatApp.Api.csproj",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\MinimialChatApp.Api.csproj",
+              "RelativeToolTip": "MinimialChatApp.Api\\MinimialChatApp.Api.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-04-15T05:11:45.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "MinimalChatApp.DataAccess.csproj",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.DataAccess\\MinimalChatApp.DataAccess.csproj",
+              "RelativeDocumentMoniker": "MinimalChatApp.DataAccess\\MinimalChatApp.DataAccess.csproj",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.DataAccess\\MinimalChatApp.DataAccess.csproj",
+              "RelativeToolTip": "MinimalChatApp.DataAccess\\MinimalChatApp.DataAccess.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-04-11T10:50:57.506Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Register.cs",
+              "DocumentMoniker": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Model\\Register.cs",
+              "RelativeDocumentMoniker": "MinimalChatApp.Model\\Register.cs",
+              "ToolTip": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Model\\Register.cs",
+              "RelativeToolTip": "MinimalChatApp.Model\\Register.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAIBJwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T10:19:24.451Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
