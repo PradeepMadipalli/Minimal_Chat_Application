@@ -13,7 +13,10 @@ namespace MinimalChatApp.Model
         public AppUser()
         {
             Messages = new HashSet<Message>();
+            Groups = new HashSet<UserGroup>();
         }
         public ICollection<Message> Messages { get; set; }
+
+        public ICollection<UserGroup> Groups { get; set; }
     }
 }

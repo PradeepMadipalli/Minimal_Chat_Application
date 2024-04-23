@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using MinimalChatApp.Business.Interface;
+using MinimalChatApp.Common;
 using MinimalChatApp.DataAccess.Interface;
 using MinimalChatApplication.Model;
 using System.Security.Claims;
@@ -12,16 +16,20 @@ namespace MinimialChatApp.Api.Controllers
 {
     [Route("api/")]
     [ApiController]
+   
+    [EnableCors("AllowOrigin")]
     public class MessageController : ControllerBase
     {
         private readonly ChatDBContext _context;
         private readonly IMessageRepository _messageRepository;
         private readonly IMessageService _messageService;
+        private readonly ChatHub _chatHub;
 
-        public MessageController(ChatDBContext context, IMessageRepository messageRepository, IMessageService messageService)
+        public MessageController(ChatDBContext context, IMessageRepository messageRepository, IMessageService messageService,ChatHub chatHub)
         {
             _context = context;
             _messageService = messageService;
+            _chatHub = chatHub;
             _messageRepository = messageRepository;
         }
         [HttpPost]
@@ -37,6 +45,7 @@ namespace MinimialChatApp.Api.Controllers
                     return BadRequest(new { error = "Receiver does not exist." });
                 }
                 Message message = await _messageService.sendMessage(request, user);
+                //var messages =  _chatHub.sendMessage(request.Content);
                 return Ok(message);
             }
             else
@@ -45,12 +54,13 @@ namespace MinimialChatApp.Api.Controllers
             }
         }
 
-        [HttpPut("{messageId}")]
-        public async Task<IActionResult> EditMessage(string messageId, EditMessageRequest request)
+        [HttpPost]
+        [Route("EditMessage")]
+        public async Task<IActionResult> EditMessage(EditMessageRequest request)
         {
 
             var senderId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            Message message = await _messageRepository.FindMessage(messageId);
+            Message message = await _messageRepository.FindMessage(request.Messageid);
             if (message == null)
             {
                 return NotFound(new { error = "Message not found." });
@@ -88,7 +98,7 @@ namespace MinimialChatApp.Api.Controllers
             return Ok(new { message = "Message deleted successfully." });
         }
         [HttpPost]
-        [Route("GetConversationHistory")]
+        [Route("Conversation")]
         public async Task<IActionResult> GetConversationHistory(ConversationHistoryRequest request)
         {
 
@@ -102,14 +112,11 @@ namespace MinimialChatApp.Api.Controllers
 
             DateTime beforeDate = request.Before ?? DateTime.UtcNow;
             var sortOrder = request.Sort == "desc" ? SortOrder.Descending : SortOrder.Ascending;
-
             var messages = await _messageService.GetConversationHistory(request, userId);
-
             if (messages.Count == 0)
             {
                 return NotFound(new { error = "Conversation not found." });
             }
-
             return Ok(new { messages });
         }
     }

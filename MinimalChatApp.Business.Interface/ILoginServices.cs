@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Identity;
+using MinimalChatApp.Model;
 using MinimalChatApplication.Model;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace MinimalChatApp.Business.Interface
     {
         Task<List<GetUsers>> GetGetUsers();
         
-        TokenResponse GetTokenResponse(Users users, IdentityUser user);
-        Task<ResponseRegister> GetResponseRegister(IdentityUser user, Register register);
+        TokenResponse GetTokenResponse(AppUser user);
+        Task<ResponseRegister> GetResponseRegister(AppUser user, Register register);
     }
 }

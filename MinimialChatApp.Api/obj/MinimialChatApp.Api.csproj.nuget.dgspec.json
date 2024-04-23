@@ -49,6 +49,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.4, )"
@@ -129,6 +133,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.4, )"
@@ -136,6 +144,10 @@
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[5.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.4, )"
             },
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
@@ -190,6 +202,12 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Business.Interface\\MinimalChatApp.Business.Interface.csproj": {
+                "projectPath": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Business.Interface\\MinimalChatApp.Business.Interface.csproj"
+              },
+              "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.DataAccess.Interface\\MinimalChatApp.DataAccess.Interface.csproj": {
+                "projectPath": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.DataAccess.Interface\\MinimalChatApp.DataAccess.Interface.csproj"
+              },
               "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Model\\MinimalChatApp.Model.csproj": {
                 "projectPath": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Model\\MinimalChatApp.Model.csproj"
               }
@@ -211,6 +229,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
             "Microsoft.AspNetCore.Http.Abstractions": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -226,6 +252,24 @@
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Analyzers": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.5.1, )"
             }
           },
           "imports": [
@@ -527,11 +571,11 @@
               "target": "Package",
               "version": "[8.0.4, )"
             },
-            "Microsoft.EntityFrameworkCore": {
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[8.0.4, )"
             },
-            "Microsoft.EntityFrameworkCore.Abstractions": {
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.4, )"
             },
@@ -561,7 +605,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [

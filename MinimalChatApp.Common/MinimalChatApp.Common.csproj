@@ -10,10 +10,22 @@
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
+	  <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.4" />
+	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.4" />
+	  <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.4" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="8.0.4" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.4" />
+	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MinimalChatApp.Business.Interface\MinimalChatApp.Business.Interface.csproj" />
+    <ProjectReference Include="..\MinimalChatApp.DataAccess.Interface\MinimalChatApp.DataAccess.Interface.csproj" />
     <ProjectReference Include="..\MinimalChatApp.Model\MinimalChatApp.Model.csproj" />
   </ItemGroup>
 

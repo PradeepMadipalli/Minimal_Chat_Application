@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "mc9AO0CFOhgr0QUQwI1jnr5LLgI0PYmD63+dQXx2TYovaWSGF4QKkW70E3FELPyj5verhMLryl4Yohc0Wbjm+w==",
+  "dgSpecHash": "Sm68k/j4aJfWK5vSnLusdPbrhTGHqibQIq7vcOSTuWz5sFNYj/2GgTj0S1rFTfefnpR/8ju5Vn4LuvPGV/+NUA==",
   "success": true,
   "projectFilePath": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Business.Interface\\MinimalChatApp.Business.Interface.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\promact\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.4\\microsoft.aspnetcore.authentication.jwtbearer.8.0.4.nupkg.sha512",
     "C:\\Users\\promact\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.4\\microsoft.aspnetcore.cryptography.internal.8.0.4.nupkg.sha512",
     "C:\\Users\\promact\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\8.0.4\\microsoft.aspnetcore.cryptography.keyderivation.8.0.4.nupkg.sha512",
     "C:\\Users\\promact\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\8.0.4\\microsoft.aspnetcore.identity.entityframeworkcore.8.0.4.nupkg.sha512",
@@ -25,6 +26,8 @@
     "C:\\Users\\promact\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.5.1\\microsoft.identitymodel.abstractions.7.5.1.nupkg.sha512",
     "C:\\Users\\promact\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.5.1\\microsoft.identitymodel.jsonwebtokens.7.5.1.nupkg.sha512",
     "C:\\Users\\promact\\.nuget\\packages\\microsoft.identitymodel.logging\\7.5.1\\microsoft.identitymodel.logging.7.5.1.nupkg.sha512",
+    "C:\\Users\\promact\\.nuget\\packages\\microsoft.identitymodel.protocols\\7.1.2\\microsoft.identitymodel.protocols.7.1.2.nupkg.sha512",
+    "C:\\Users\\promact\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\7.1.2\\microsoft.identitymodel.protocols.openidconnect.7.1.2.nupkg.sha512",
     "C:\\Users\\promact\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.5.1\\microsoft.identitymodel.tokens.7.5.1.nupkg.sha512",
     "C:\\Users\\promact\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.5.1\\system.identitymodel.tokens.jwt.7.5.1.nupkg.sha512"
   ],

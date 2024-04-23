@@ -4,7 +4,6 @@ using MinimalChatApp.Business.Interface;
 using MinimalChatApplication.Model;
 using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -13,6 +12,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Identity;
 using MinimalChatApp.DataAccess.Interface;
 using Microsoft.EntityFrameworkCore;
+using MinimalChatApp.Model;
+using System.IdentityModel.Tokens.Jwt;
 
 
 namespace MinimalChatApp.Business
@@ -20,9 +21,9 @@ namespace MinimalChatApp.Business
     public class LoginService : ILoginServices
     {
         private readonly IConfiguration _Configuration;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<AppUser> _userManager;
         private readonly ILoginRepository _loginRepository;
-        public LoginService(IConfiguration configuration, UserManager<IdentityUser> userManager,ILoginRepository loginRepository
+        public LoginService(IConfiguration configuration, UserManager<AppUser> userManager,ILoginRepository loginRepository
             )
         {
             _Configuration = configuration;
@@ -69,7 +70,7 @@ namespace MinimalChatApp.Business
             return UserDetails;
         }
 
-        public async  Task<ResponseRegister> GetResponseRegister(IdentityUser user, Register register)
+        public async  Task<ResponseRegister> GetResponseRegister(AppUser user, Register register)
         {
             string usid = await _loginRepository.userGetUserId(user);
             ResponseRegister responseRegister = new ResponseRegister()
@@ -81,7 +82,7 @@ namespace MinimalChatApp.Business
             return responseRegister;
         }
 
-        public TokenResponse GetTokenResponse(Users users, IdentityUser user)
+        public TokenResponse GetTokenResponse(AppUser user)
         {
 
             var authclaims = new List<Claim>
@@ -93,12 +94,9 @@ namespace MinimalChatApp.Business
 
             Profile profile = new Profile()
             {
-
                 UId = user.Id,
                 Email = user.Email,
                 Name = user.UserName
-
-
             };
 
             TokenResponse response = new TokenResponse()
@@ -108,5 +106,6 @@ namespace MinimalChatApp.Business
             };
             return response;
         }
+
     }
 }

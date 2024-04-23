@@ -11,7 +11,10 @@ namespace MinimalChatApp.Business.Interface
     {
         Task<Message> sendMessage(MessageRequest request, string user);
         Task<Message> EditMessage(EditMessageRequest request, Message message);
+
         Task DeleteMessage(Message message);
         Task<List<Message>> GetConversationHistory(ConversationHistoryRequest request, string userId);
+        Task<Insertmessage> sendMessage(ChatMessageRequest request);
+        string GetNameIdentifier();
     }
 }

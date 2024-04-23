@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MinimalChatApp.DataAccess.Interface;
+using MinimalChatApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,8 @@ namespace MinimalChatApp.DataAccess
 {
     public class LoginRepository : ILoginRepository
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        public LoginRepository(UserManager<IdentityUser> userManager)
+        private readonly UserManager<AppUser> _userManager;
+        public LoginRepository(UserManager<AppUser> userManager)
         {
             _userManager = userManager;
         }
@@ -22,7 +23,7 @@ namespace MinimalChatApp.DataAccess
             return await _userManager.Users.ToListAsync();
         }
 
-        public async Task<IdentityUser> userFindByEmail(string email)
+        public async Task<AppUser> userFindByEmail(string email)
         {
             if (email == null) throw new ArgumentNullException("email");
             else {
@@ -31,17 +32,17 @@ namespace MinimalChatApp.DataAccess
            
         }
 
-        public async Task<bool> userCheckPassword(IdentityUser users, string password)
+        public async Task<bool> userCheckPassword(AppUser users, string password)
         {
             return await _userManager.CheckPasswordAsync(users, password);
         }
 
-        public async void userCreate(IdentityUser identityUser, string password)
+        public async void userCreate(AppUser identityUser, string password)
         {
             await _userManager.CreateAsync(identityUser, password);
         }
 
-        public async Task<string> userGetUserId(IdentityUser identityUser)
+        public async Task<string> userGetUserId(AppUser identityUser)
         {
             return await _userManager.GetUserIdAsync(identityUser);
         }

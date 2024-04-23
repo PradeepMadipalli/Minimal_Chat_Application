@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MinimalChatApp.Model;
+using System.Linq;
 
 
 namespace MinimalChatApplication.Model
@@ -19,12 +20,27 @@ namespace MinimalChatApplication.Model
             builder.Entity<Message>()
                 .HasOne(a => a.sender)
                 .WithMany(d => d.Messages)
-                .HasForeignKey(d => d.UserId);
+                .HasForeignKey(d => d.SenderId);
+            builder.Entity<UserGroup>().
+             HasOne(a => a.User)
+                 .WithMany(d => d.Groups)
+                 .HasForeignKey(d => d.Id);
+            builder.Entity<UserGroup>().
+                HasOne(a => a.Group)
+                .WithMany(a => a.Groups)
+                .HasForeignKey(a => a.GroupId);
+            builder.Entity<Message>()
+                .HasOne(a=>a.Group)
+                .WithMany(a=>a.messages)
+                .HasForeignKey(a=>a.groupId);
         }
 
         public DbSet<Message> Messages { get; set; }
         public DbSet<Logs> Logs { get; set; }
 
         public DbSet<ErrorLogger> ErrorLogs { get; set; }
+
+        public DbSet<Group> Group { get; set; }
+        public DbSet<UserGroup> UserGroups { get; set; }
     }
 }

@@ -22,7 +22,20 @@ namespace MinimalChatApp.DataAccess
 
         public async Task<Message> FindMessage(string MessageId)
         {
-            return await _context.Messages.FindAsync(MessageId);
+            Guid guid;
+            try
+            {
+                guid = Guid.Parse(MessageId);
+
+                Message message = await _context.Messages.FindAsync(guid);
+                return message;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+
         }
 
         public async Task<object> getLogs(DateTime? startTime = null, DateTime? endTime = null)
@@ -36,6 +49,6 @@ namespace MinimalChatApp.DataAccess
         {
             return await _context.Users.AnyAsync(u => u.Id == Receverid);
         }
-       
+
     }
 }

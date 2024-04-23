@@ -4,14 +4,14 @@
     "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.DataAccess\\MinimalChatApp.DataAccess.csproj": {}
   },
   "projects": {
-    "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Common\\MinimalChatApp.Common.csproj": {
+    "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Business.Interface\\MinimalChatApp.Business.Interface.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Common\\MinimalChatApp.Common.csproj",
-        "projectName": "MinimalChatApp.Common",
-        "projectPath": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Common\\MinimalChatApp.Common.csproj",
+        "projectUniqueName": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Business.Interface\\MinimalChatApp.Business.Interface.csproj",
+        "projectName": "MinimalChatApp.Business.Interface",
+        "projectPath": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Business.Interface\\MinimalChatApp.Business.Interface.csproj",
         "packagesPath": "C:\\Users\\promact\\.nuget\\packages\\",
-        "outputPath": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Common\\obj\\",
+        "outputPath": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Business.Interface\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\promact\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -49,6 +49,98 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.5.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Common\\MinimalChatApp.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Common\\MinimalChatApp.Common.csproj",
+        "projectName": "MinimalChatApp.Common",
+        "projectPath": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Common\\MinimalChatApp.Common.csproj",
+        "packagesPath": "C:\\Users\\promact\\.nuget\\packages\\",
+        "outputPath": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\promact\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Business.Interface\\MinimalChatApp.Business.Interface.csproj": {
+                "projectPath": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Business.Interface\\MinimalChatApp.Business.Interface.csproj"
+              },
+              "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.DataAccess.Interface\\MinimalChatApp.DataAccess.Interface.csproj": {
+                "projectPath": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.DataAccess.Interface\\MinimalChatApp.DataAccess.Interface.csproj"
+              },
+              "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Model\\MinimalChatApp.Model.csproj": {
+                "projectPath": "D:\\Minimal\\MinimalChatApp\\MinimalChatApp.Model\\MinimalChatApp.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
             "Microsoft.AspNetCore.Http.Abstractions": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -64,6 +156,24 @@
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Analyzers": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.5.1, )"
             }
           },
           "imports": [

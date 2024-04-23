@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MinimalChatApp.DataAccess.Interface;
@@ -8,6 +10,7 @@ namespace MinimialChatApp.Api.Controllers
 {
     [Route("api/")]
     [ApiController]
+    [EnableCors("AllowOrigin")]
     public class LogsController : ControllerBase
     {
         private readonly IMessageRepository _messsageRepository;

@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Identity;
+using MinimalChatApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +13,12 @@ namespace MinimalChatApp.DataAccess.Interface
     {
 
         Task<object> GetUsersList();
-        Task<IdentityUser> userFindByEmail(string email);
+        Task<AppUser> userFindByEmail(string email);
 
-        Task<bool> userCheckPassword(IdentityUser users, string password);
+        Task<bool> userCheckPassword(AppUser users, string password);
 
-        void userCreate(IdentityUser identityUser, string password);
+        void userCreate(AppUser identityUser, string password);
 
-        Task<string> userGetUserId(IdentityUser identityUser);
+        Task<string> userGetUserId(AppUser identityUser);
     }
 }
