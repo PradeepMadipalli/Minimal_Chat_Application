@@ -320,3 +320,4 @@ D:\Minimal\MinimalChatApp\MinimialChatApp.Api\obj\Debug\net8.0\ref\MinimialChatA
 D:\Minimal\MinimalChatApp\MinimialChatApp.Api\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
 D:\Minimal\MinimalChatApp\MinimialChatApp.Api\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\Minimal\MinimalChatApp\MinimialChatApp.Api\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+D:\Minimal\MinimalChatApp\MinimialChatApp.Api\bin\Debug\net8.0\MinimialChatApp.Api.staticwebassets.runtime.json

@@ -23,9 +23,7 @@ namespace MinimalChatApplication.Model
         [Required]
         public DateTime Timestamp { get; set; }
 
-        public string? groupId { get; set; }
-        public virtual Group Group
-        { get; set; }
+        public string? groupId { get; set; }=null;
         public virtual AppUser sender { get; set; }
 
 
@@ -62,5 +60,6 @@ namespace MinimalChatApplication.Model
         public string? content { get; set; }
         [Required]
         public DateTime timestamp { get; set; }
+        public string? groupId { get; set; }
     }
 }

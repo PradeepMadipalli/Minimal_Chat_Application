@@ -56,13 +56,12 @@ builder.Services.AddIdentity<AppUser, IdentityRole>()
 
 builder.Services.AddScoped<ILoginRepository, LoginRepository>();
 builder.Services.AddScoped<IMessageRepository, MessageRepository>();
+builder.Services.AddScoped<IGroupRepository, GroupRepository>();
 builder.Services.AddScoped<ILoginServices, LoginService>();
 builder.Services.AddScoped<IMessageService, MessageService>();
-builder.Services.AddScoped<IStatusService, StatusService>();
-//builder.Services.AddScoped<IGroupService, GroupService>();
+builder.Services.AddScoped<IGroupServices, GroupServices>();
 builder.Services.AddScoped<ChatHub>();
-builder.Services.AddSingleton<IDictionary<string, UserGroupConnection>>(opt =>
-    new Dictionary<string, UserGroupConnection>());
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
@@ -89,12 +88,12 @@ builder.Services.AddAuthentication(options =>
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 });
-builder.Services.AddControllers();
+//builder.Services.AddControllers();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name:"AllowOrigin", builder =>
     {
-        builder.AllowAnyOrigin()
+        builder.WithOrigins("http://localhost:4200")
         .AllowAnyHeader()
         .AllowAnyMethod();
 

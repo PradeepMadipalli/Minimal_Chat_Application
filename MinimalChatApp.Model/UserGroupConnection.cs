@@ -24,19 +24,23 @@ namespace MinimalChatApp.Model
         public Guid? GroupId { get; set; }
         public string? GroupName { get; set;}
 
-        public ICollection<UserGroup> Groups { get; set;}
-        public ICollection<Message> messages { get; set;}
+        public virtual ICollection<UserGroup> Groups { get; set;}
     }
 
 
     public class UserGroup
     {
-        public string? Id { get; set;}
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int GId { get; set; }
+        public string? UserId { get; set;}
         public virtual AppUser User { get; set; }
 
         public Guid? GroupId { get; set; }
 
         public virtual Group Group { get; set; }
+
+        public int Status {  get; set; }
 
     }
 }

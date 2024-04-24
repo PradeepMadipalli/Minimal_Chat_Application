@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "Ef11dyIf3ecnBdDfc5YEhYEBOKnRd4OKe0Ak82o0KI8=",
+  "Hash": "IMt2aVfZL+OaEVFFQJFQ29JOnR3gL6Y84Ub5ndIqi8Y=",
   "Source": "MinimialChatApp.Api",
   "BasePath": "_content/MinimialChatApp.Api",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "MinimialChatApp.Api\\wwwroot",
+      "Source": "MinimialChatApp.Api",
+      "ContentRoot": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\wwwroot\\",
+      "BasePath": "_content/MinimialChatApp.Api",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

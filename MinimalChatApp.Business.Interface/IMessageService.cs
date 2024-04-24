@@ -15,6 +15,7 @@ namespace MinimalChatApp.Business.Interface
         Task DeleteMessage(Message message);
         Task<List<Message>> GetConversationHistory(ConversationHistoryRequest request, string userId);
         Task<Insertmessage> sendMessage(ChatMessageRequest request);
+        Task<List<GetGroups>> GetGetGroups();
         string GetNameIdentifier();
     }
 }

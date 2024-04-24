@@ -13,5 +13,6 @@ namespace MinimalChatApplication.Model
 
         [Required(ErrorMessage = "Password is Required")]
         public string? Password { get; set; }
+       
     }
 }

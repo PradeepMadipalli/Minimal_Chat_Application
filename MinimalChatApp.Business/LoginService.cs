@@ -14,6 +14,9 @@ using MinimalChatApp.DataAccess.Interface;
 using Microsoft.EntityFrameworkCore;
 using MinimalChatApp.Model;
 using System.IdentityModel.Tokens.Jwt;
+using Microsoft.Extensions.Hosting.Internal;
+using Microsoft.AspNetCore.Hosting.Internal;
+using Microsoft.Extensions.Hosting;
 
 
 namespace MinimalChatApp.Business
@@ -21,19 +24,22 @@ namespace MinimalChatApp.Business
     public class LoginService : ILoginServices
     {
         private readonly IConfiguration _Configuration;
+        private readonly IHostEnvironment _hostEnvironment;
         private readonly UserManager<AppUser> _userManager;
         private readonly ILoginRepository _loginRepository;
-        public LoginService(IConfiguration configuration, UserManager<AppUser> userManager,ILoginRepository loginRepository
+        public LoginService(IConfiguration configuration,
+            IHostEnvironment hostEnvironment,UserManager<AppUser> userManager, ILoginRepository loginRepository
             )
         {
             _Configuration = configuration;
+            this._hostEnvironment = hostEnvironment;
             _userManager = userManager;
-            _loginRepository=loginRepository;
+            _loginRepository = loginRepository;
         }
         private JwtSecurityToken GenerateToken(List<Claim> claimss)
         {
 
-           
+
             var securitykey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_Configuration["Jwt:Key"]));
             var credentials = new SigningCredentials(securitykey, SecurityAlgorithms.HmacSha256);
 
@@ -70,7 +76,7 @@ namespace MinimalChatApp.Business
             return UserDetails;
         }
 
-        public async  Task<ResponseRegister> GetResponseRegister(AppUser user, Register register)
+        public async Task<ResponseRegister> GetResponseRegister(AppUser user, Register register)
         {
             string usid = await _loginRepository.userGetUserId(user);
             ResponseRegister responseRegister = new ResponseRegister()
@@ -107,5 +113,17 @@ namespace MinimalChatApp.Business
             return response;
         }
 
+        //public Register PhotoSave(Register register)
+        //{
+        //    string uniqueFileName = null;
+        //    if (register.PhotoPath != null)
+        //    {
+        //        string uploadsFolder = Path.Combine(_hostEnvironment.ContentRootPath, "Images");
+        //        uniqueFileName = Guid.NewGuid().ToString() + "_" + register.Photo.FileName;
+        //        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+        //        register.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
+        //    }
+        //    return register;
+        //}
     }
 }

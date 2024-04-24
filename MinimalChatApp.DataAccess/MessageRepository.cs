@@ -50,5 +50,10 @@ namespace MinimalChatApp.DataAccess
             return await _context.Users.AnyAsync(u => u.Id == Receverid);
         }
 
+        public async Task<bool> isExistGroup(string groupid)
+        {
+            return await _context.Group.AnyAsync(u => u.GroupId.ToString() == groupid);
+        }
+
     }
 }

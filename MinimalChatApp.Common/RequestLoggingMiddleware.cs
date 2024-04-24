@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
@@ -42,7 +43,7 @@ namespace MinimalChatApp.Common
                 //if (token != null)
                 //{
                 //    var principal = ValidateToken(token);
-                //    if (principal != null)
+                //    if (princip != null)
                 //    {
                 //        context.User = principal;
                 //    }
@@ -99,7 +100,7 @@ namespace MinimalChatApp.Common
             var queryString = request.QueryString;
 
             var ipAddress = context.Connection.RemoteIpAddress.ToString();
-
+            //context.Features.Get<IHttpBodyControlFeature>().AllowSynchronousIO = true;
 
             string requestBody =  ReadRequestBody(context.Request); 
 
@@ -120,6 +121,7 @@ namespace MinimalChatApp.Common
         private string ReadRequestBody(HttpRequest request)
         {
             request.EnableBuffering();
+
             using (StreamReader reader = new StreamReader(request.Body, Encoding.UTF8, true, 1024, true))
             {
                 string requestBody = reader.ReadToEnd();

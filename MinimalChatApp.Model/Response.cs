@@ -9,12 +9,15 @@
     {
         public string? ReceiverId { get; set; }
         public string? Content { get; set; }
+        public string? groupId { get; set; } = null;
     }
     public class ChatMessageRequest
     {
         public string? ReceiverId { get; set; }
         public string? Content { get; set; }
-        public string? SenderId { get; set; }    
+        public string? SenderId { get; set; }
+
+        public string? groupId { get; set; } 
     }
     public class EditMessageRequest
     {
@@ -23,9 +26,11 @@
     }
     public class ConversationHistoryRequest
     {
+
         public string? UserId { get; set; }
         public DateTime? Before { get; set; }
         public int Count { get; set; } = 20;
         public string? Sort { get; set; } = "asc";
+        public string? groupId { get; set; }
     }
 }

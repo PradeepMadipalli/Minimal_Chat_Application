@@ -22,7 +22,7 @@ namespace MinimalChatApp.Business
         private readonly ChatDBContext _chatDBContext;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public MessageService(IMessageRepository messageRepository, ChatDBContext chatDBContext ,IHttpContextAccessor httpContextAccessor)
+        public MessageService(IMessageRepository messageRepository, ChatDBContext chatDBContext, IHttpContextAccessor httpContextAccessor)
         {
             _messagerepository = messageRepository;
             _chatDBContext = chatDBContext;
@@ -48,22 +48,32 @@ namespace MinimalChatApp.Business
         {
             DateTime beforeDate = request.Before ?? DateTime.UtcNow;
             var sortOrder = request.Sort == "desc" ? SortOrder.Descending : SortOrder.Ascending;
+            var messagesQuery = _chatDBContext.Messages.AsQueryable();
 
-            var messagesQuery = _chatDBContext.Messages
-                   .Where(m => (m.SenderId == userId && m.ReceiverId == request.UserId) || (m.SenderId == request.UserId && m.ReceiverId == userId))
-                   .Where(m => m.Timestamp < beforeDate)
-                   .OrderBy(m => sortOrder == SortOrder.Ascending ? m.Timestamp : (DateTime?)null)
-                   .OrderByDescending(m => sortOrder == SortOrder.Descending ? m.Timestamp : (DateTime?)null)
-                   .Take(request.Count);
+            if (request.groupId == null || request.groupId == "")
+            {
+                messagesQuery = messagesQuery.Where(m => (m.SenderId == userId && m.ReceiverId == request.UserId) || (m.SenderId == request.UserId && m.ReceiverId == userId) || (m.SenderId == request.UserId && m.groupId == userId))
+               .Where(m => m.Timestamp < beforeDate)
+               .OrderBy(m => sortOrder == SortOrder.Ascending ? m.Timestamp : (DateTime?)null)
+               .OrderByDescending(m => sortOrder == SortOrder.Descending ? m.Timestamp : (DateTime?)null)
+               .Take(request.Count);
+            }
+            else
+            {
+                messagesQuery = messagesQuery.Where(m => m.groupId == request.groupId);
+            }
 
 
-           List<Message> messages = await messagesQuery.Select(m =>  new Message
+
+            List<Message> messages = await messagesQuery.Select(m => new Message
             {
                 MessageId = m.MessageId,
                 SenderId = m.SenderId,
                 ReceiverId = m.ReceiverId,
                 Content = m.Content,
-                Timestamp = m.Timestamp
+                Timestamp = m.Timestamp,
+                groupId = m.groupId,
+
             }).ToListAsync();
             return messages;
         }
@@ -72,14 +82,24 @@ namespace MinimalChatApp.Business
 
         public async Task<Message> sendMessage(MessageRequest request, string user)
         {
-            
+
+            if (request.ReceiverId == "")
+            {
+                request.ReceiverId = null;
+            }
+            if (request.groupId == "")
+            {
+                request.groupId = null;
+            }
             var message = new Message
             {
                 MessageId = Guid.NewGuid(),
                 SenderId = user,
                 ReceiverId = request.ReceiverId,
                 Content = request.Content,
-                Timestamp = DateTime.UtcNow
+                Timestamp = DateTime.UtcNow,
+                groupId = request.groupId,
+
             };
 
             _chatDBContext.Messages.Add(message);
@@ -89,13 +109,19 @@ namespace MinimalChatApp.Business
         public async Task<Insertmessage> sendMessage(ChatMessageRequest request)
         {
 
+            if(request.ReceiverId=="" || request.ReceiverId==null)
+            {
+                request.ReceiverId = null;
+            }
             var message = new Message
             {
                 MessageId = Guid.NewGuid(),
                 SenderId = request.SenderId,
                 ReceiverId = request.ReceiverId,
                 Content = request.Content,
-                Timestamp = DateTime.UtcNow
+                Timestamp = DateTime.UtcNow,
+                groupId = request.groupId
+
             };
             var message1 = new Insertmessage
             {
@@ -103,12 +129,35 @@ namespace MinimalChatApp.Business
                 senderId = request.SenderId,
                 receiverId = request.ReceiverId,
                 content = request.Content,
-                timestamp = DateTime.UtcNow
+                timestamp = DateTime.UtcNow,
+                groupId = request.groupId
             };
 
             _chatDBContext.Messages.Add(message);
             await _chatDBContext.SaveChangesAsync();
             return message1;
+        }
+
+        public async Task<List<GetGroups>> GetGetGroups()
+        {
+            var groups = await _chatDBContext.Group.ToListAsync();
+
+            List<GetGroups> GroupDetails = new List<GetGroups>();
+
+            foreach (var group in groups)
+            {
+                GetGroups v = new GetGroups()
+                {
+                    GroupId = group.GroupId.ToString(),
+                    GroupName = group.GroupName
+                };
+                GroupDetails.Add(v);
+            }
+            Groupss groupss = new Groupss()
+            {
+                Groupsss = GroupDetails
+            };
+            return GroupDetails;
         }
         public string GetNameIdentifier()
         {

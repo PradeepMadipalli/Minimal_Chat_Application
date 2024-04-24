@@ -290,15 +290,26 @@ namespace MinimialChatApp.Api.Migrations
 
             modelBuilder.Entity("MinimalChatApp.Model.UserGroup", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("GId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GId"));
 
                     b.Property<Guid?>("GroupId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("GId");
 
                     b.HasIndex("GroupId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("UserGroups", (string)null);
                 });
@@ -324,7 +335,6 @@ namespace MinimialChatApp.Api.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("groupId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MessageId");
@@ -400,9 +410,7 @@ namespace MinimialChatApp.Api.Migrations
 
                     b.HasOne("MinimalChatApp.Model.AppUser", "User")
                         .WithMany("Groups")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Group");
 

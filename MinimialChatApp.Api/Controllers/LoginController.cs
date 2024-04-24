@@ -17,18 +17,21 @@ namespace MinimialChatApp.Api.Controllers
 {
     [Route("api/")]
     [ApiController]
+    [EnableCors("AllowOrigin")]
     public class LoginController : ControllerBase
     {
         private readonly IConfiguration _Configuration;
         private readonly UserManager<AppUser> _userManager;
         private readonly ILoginServices _loginsevice;
+        private readonly IMessageService _messageService;
 
-        public LoginController(IConfiguration configuration, UserManager<AppUser> userManager, ILoginServices loginServices
+        public LoginController(IConfiguration configuration, UserManager<AppUser> userManager, ILoginServices loginServices,IMessageService messageService
             )
         {
             _Configuration = configuration;
             _userManager = userManager;
             _loginsevice = loginServices;
+            _messageService = messageService;
         }
 
 
@@ -94,18 +97,20 @@ namespace MinimialChatApp.Api.Controllers
 
         [HttpGet]
         [Route("users")]
-        [Authorize]
         public async Task<IActionResult> GetUsers()
         {
 
             List<GetUsers> users = await _loginsevice.GetGetUsers();
-            if (users == null)
+
+            List<GetGroups> Groups = await _messageService.GetGetGroups();
+            if (users == null || Groups==null)
             {
                 StatusCode(404, new { error = "Users not found" });
             }
 
-            return Ok(users);
+            return Ok(new { users, Groups });
         }
+
     }
 }
 

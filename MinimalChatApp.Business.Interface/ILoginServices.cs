@@ -18,5 +18,6 @@ namespace MinimalChatApp.Business.Interface
         
         TokenResponse GetTokenResponse(AppUser user);
         Task<ResponseRegister> GetResponseRegister(AppUser user, Register register);
+       //public string PhotoSave();
     }
 }

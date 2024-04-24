@@ -13,7 +13,9 @@ namespace MinimalChatApp.DataAccess.Interface
         Task<Message> FindMessage(string MessageId);
 
         Task<object> getLogs(DateTime? startTime = null, DateTime? endTime = null);
+        Task<bool> isExistGroup(string groupid);
 
-        
+
+
     }
 }
