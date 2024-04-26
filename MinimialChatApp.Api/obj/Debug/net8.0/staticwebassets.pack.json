@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\wwwroot\\Uploads\\271744953_3114299558808356_612943069721066328_n.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\271744953_3114299558808356_612943069721066328_n.jpg"
+    },
+    {
+      "Id": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\wwwroot\\Uploads\\Madipalli Pradeep.jpeg",
+      "PackagePath": "staticwebassets\\Uploads\\Madipalli Pradeep.jpeg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.MinimialChatApp.Api.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.MinimialChatApp.Api.props",
+      "PackagePath": "build\\MinimialChatApp.Api.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.MinimialChatApp.Api.props",
+      "PackagePath": "buildMultiTargeting\\MinimialChatApp.Api.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.MinimialChatApp.Api.props",
+      "PackagePath": "buildTransitive\\MinimialChatApp.Api.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

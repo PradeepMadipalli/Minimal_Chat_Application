@@ -46,5 +46,10 @@ namespace MinimalChatApp.DataAccess
         {
             return await _userManager.GetUserIdAsync(identityUser);
         }
+        public async Task<AppUser> userFindById(string Id)
+        {        
+            AppUser appUser =   await _userManager.FindByIdAsync(Id);
+            return appUser;
+        }
     }
 }

@@ -33,6 +33,8 @@ namespace MinimalChatApplication.Model
             builder.Entity<UserGroup>()
             .Property(f => f.GId)
             .ValueGeneratedOnAdd();
+            builder.Entity<UserStatuss>().HasKey(u => u.Id);
+            builder.Entity<ProfilePhoto>().HasKey(p => p.Id);
 
         }
 
@@ -43,5 +45,8 @@ namespace MinimalChatApplication.Model
 
         public DbSet<Group> Group { get; set; }
         public DbSet<UserGroup> UserGroups { get; set; }
+        public DbSet<UserStatuss> UserStatus { get; set; }
+
+        public DbSet<ProfilePhoto> ProfilePhoto { get; set; }
     }
 }

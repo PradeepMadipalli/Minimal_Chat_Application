@@ -20,5 +20,6 @@ namespace MinimalChatApp.DataAccess.Interface
         void userCreate(AppUser identityUser, string password);
 
         Task<string> userGetUserId(AppUser identityUser);
+        Task<AppUser> userFindById(string Id);
     }
 }

@@ -24,7 +24,10 @@ namespace MinimalChatApp.Model
         public Guid? GroupId { get; set; }
         public string? GroupName { get; set;}
 
+        
         public virtual ICollection<UserGroup> Groups { get; set;}
+
+        public string ? GroupPath { get; set; }
     }
 
 
@@ -41,6 +44,9 @@ namespace MinimalChatApp.Model
         public virtual Group Group { get; set; }
 
         public int Status {  get; set; }
+
+        public DateTime Createdate { get; set; }
+        public int AddDays { get; set; }
 
     }
 }

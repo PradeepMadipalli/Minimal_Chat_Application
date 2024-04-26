@@ -39,15 +39,14 @@ namespace MinimalChatApp.Common
         public override async Task OnConnectedAsync()
         {
             await base.OnConnectedAsync();
-            var userNameClaim = _httpContextAccessor.HttpContext.User.Claims
-      .FirstOrDefault(c => c.Type == ClaimTypes.Name);
+            var userNameClaim = _httpContextAccessor.HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name);
             var user = userNameClaim?.Value;
             if (user != null)
             {
                 var userRooms = _chatDBContext.UserGroups.Where(ur => ur.UserId == user).ToList();
                 foreach (var userRoom in userRooms)
                 {
-                    await Groups.AddToGroupAsync(Context.ConnectionId, userRoom.GroupId.ToString());
+                    await Groups.AddToGroupAsync(user, userRoom.GroupId.ToString());
                 }
             }
         }
@@ -73,13 +72,20 @@ namespace MinimalChatApp.Common
             }
 
         }
-        public async Task CreateGroup(string groupName)
+        public async Task CreateGroup(string groupName, string userlist)
         {
-            var group = new Group { GroupName = groupName };
-            _chatDBContext.Group.Add(group);
-            await _chatDBContext.SaveChangesAsync();
+            try
+            {
+                Group group = await _messageService.CreateGroup(groupName, userlist);
+                var stringv = new { groupId = group.GroupId, groupName = group.GroupName };
+                string groupstring = JsonConvert.SerializeObject(stringv);
+                await Clients.All.SendAsync("GroupCreated", groupstring);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
 
-            await Clients.Caller.SendAsync("GroupCreated", group.GroupId, group.GroupName);
         }
 
         public async Task EditGroupName(int groupId, string newName)
@@ -93,14 +99,11 @@ namespace MinimalChatApp.Common
             }
         }
 
-        public async Task AddGroupMember(Guid groupId, string memberId)
+        public async Task AddGroupMember(string groupId, string memberId)
         {
-            var userGroup = new UserGroup { UserId = memberId, GroupId = groupId };
-            _chatDBContext.UserGroups.Add(userGroup);
-            await _chatDBContext.SaveChangesAsync();
-            await Groups.AddToGroupAsync(Context.ConnectionId, groupId.ToString());
-            var User = await _chatDBContext.Users.FindAsync(memberId);
-            await Clients.Client(Context.ConnectionId).SendAsync("AddedToGroup", User.UserName + " New Group Member was Joined");
+            var stringvalues = await _messageService.UpdateGroupUsers(groupId, memberId);
+            string stringobject = JsonConvert.SerializeObject(stringvalues);    
+            await Clients.Client(Context.ConnectionId).SendAsync("AddedToGroup", stringobject);
         }
 
         public async Task RemoveGroupMember(Guid groupId, string memberId)
@@ -133,12 +136,11 @@ namespace MinimalChatApp.Common
 
         public async Task SetStatus(string userId, string status)
         {
-            var user = await _chatDBContext.Users.FindAsync(userId);
-            if (user != null)
+            UserStatuss userStatuss = await _messageService.UpdateUserStatus(userId, status);
+
+            if (userStatuss != null)
             {
-                user.SecurityStamp = status;
-                await _chatDBContext.SaveChangesAsync();
-                await Clients.Client(Context.ConnectionId).SendAsync("StatusUpdated", userId, status);
+                await Clients.All.SendAsync("GetUpdateUserStatus", userStatuss.UserId, status);
             }
         }
 

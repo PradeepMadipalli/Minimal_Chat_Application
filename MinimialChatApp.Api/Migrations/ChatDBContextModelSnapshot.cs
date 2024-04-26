@@ -246,7 +246,7 @@ namespace MinimialChatApp.Api.Migrations
 
                     b.HasKey("LoggerId");
 
-                    b.ToTable("ErrorLogs", (string)null);
+                    b.ToTable("ErrorLogs");
                 });
 
             modelBuilder.Entity("MinimalChatApp.Model.Group", b =>
@@ -258,9 +258,12 @@ namespace MinimialChatApp.Api.Migrations
                     b.Property<string>("GroupName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("GroupPath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("GroupId");
 
-                    b.ToTable("Group", (string)null);
+                    b.ToTable("Group");
                 });
 
             modelBuilder.Entity("MinimalChatApp.Model.Logs", b =>
@@ -285,7 +288,26 @@ namespace MinimialChatApp.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Logs", (string)null);
+                    b.ToTable("Logs");
+                });
+
+            modelBuilder.Entity("MinimalChatApp.Model.ProfilePhoto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("PhotoPath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("userid")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProfilePhoto");
                 });
 
             modelBuilder.Entity("MinimalChatApp.Model.UserGroup", b =>
@@ -295,6 +317,12 @@ namespace MinimialChatApp.Api.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GId"));
+
+                    b.Property<int>("AddDays")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Createdate")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid?>("GroupId")
                         .HasColumnType("uniqueidentifier");
@@ -311,7 +339,26 @@ namespace MinimialChatApp.Api.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserGroups", (string)null);
+                    b.ToTable("UserGroups");
+                });
+
+            modelBuilder.Entity("MinimalChatApp.Model.UserStatuss", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UsersStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserStatus");
                 });
 
             modelBuilder.Entity("MinimalChatApplication.Model.Message", b =>
@@ -341,7 +388,7 @@ namespace MinimialChatApp.Api.Migrations
 
                     b.HasIndex("SenderId");
 
-                    b.ToTable("Messages", (string)null);
+                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("MinimalChatApp.Model.AppUser", b =>

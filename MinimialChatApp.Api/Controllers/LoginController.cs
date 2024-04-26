@@ -7,8 +7,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using MinimalChatApp.Business;
 using MinimalChatApp.Business.Interface;
+using MinimalChatApp.DataAccess.Interface;
 using MinimalChatApp.Model;
 using MinimalChatApplication.Model;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -24,14 +26,16 @@ namespace MinimialChatApp.Api.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly ILoginServices _loginsevice;
         private readonly IMessageService _messageService;
+        private readonly IGroupRepository _groupRepository;
 
-        public LoginController(IConfiguration configuration, UserManager<AppUser> userManager, ILoginServices loginServices,IMessageService messageService
+        public LoginController(IConfiguration configuration, UserManager<AppUser> userManager, ILoginServices loginServices, IMessageService messageService, IGroupRepository groupRepository
             )
         {
             _Configuration = configuration;
             _userManager = userManager;
             _loginsevice = loginServices;
             _messageService = messageService;
+            _groupRepository = groupRepository;
         }
 
 
@@ -99,16 +103,29 @@ namespace MinimialChatApp.Api.Controllers
         [Route("users")]
         public async Task<IActionResult> GetUsers()
         {
-
-            List<GetUsers> users = await _loginsevice.GetGetUsers();
-
-            List<GetGroups> Groups = await _messageService.GetGetGroups();
-            if (users == null || Groups==null)
+            var user = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            List<GetUsers> userss = await _loginsevice.GetGetUsers();
+            List<ProfilePhoto> profilePhotos = await _groupRepository.GetProfileDetails();
+            List<GetGroups> Groupss = await _messageService.GetGetGroups();
+            List<UserGroup> userGroups = await _messageService.GetUserGroup(user);
+            var users = userss.Join(profilePhotos, a => a.UserId, b => b.userid, (a, b) => new
+            {
+                UserId = a.UserId,
+                UserName = a.UserName,
+                UserEmail = a.UserEmail,
+                PhotoPath = b.PhotoPath
+            }).DefaultIfEmpty().ToList();
+            List<GetGroups> getGroups = Groupss.Join(userGroups, u => u.GroupId, g => g.GroupId.ToString(), (u, g) => new GetGroups
+            {
+                GroupId = g.GroupId.ToString(),
+                GroupName = u.GroupName
+            }).ToList();
+            if (users == null || Groupss == null)
             {
                 StatusCode(404, new { error = "Users not found" });
             }
 
-            return Ok(new { users, Groups });
+            return Ok(new { users, getGroups });
         }
 
     }

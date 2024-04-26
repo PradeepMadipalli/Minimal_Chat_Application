@@ -13,6 +13,10 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Data.SqlClient;
 using Microsoft.AspNetCore.Http;
+using MinimalChatApp.Model;
+using Newtonsoft.Json;
+using Azure.Core;
+using System.Collections;
 
 namespace MinimalChatApp.Business
 {
@@ -21,12 +25,14 @@ namespace MinimalChatApp.Business
         private readonly IMessageRepository _messagerepository;
         private readonly ChatDBContext _chatDBContext;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly ILoginRepository _loginRepository;
 
-        public MessageService(IMessageRepository messageRepository, ChatDBContext chatDBContext, IHttpContextAccessor httpContextAccessor)
+        public MessageService(IMessageRepository messageRepository, ChatDBContext chatDBContext, IHttpContextAccessor httpContextAccessor, ILoginRepository loginRepository)
         {
             _messagerepository = messageRepository;
             _chatDBContext = chatDBContext;
             this._httpContextAccessor = httpContextAccessor;
+            _loginRepository = loginRepository;
         }
 
         public async Task DeleteMessage(Message message)
@@ -109,7 +115,7 @@ namespace MinimalChatApp.Business
         public async Task<Insertmessage> sendMessage(ChatMessageRequest request)
         {
 
-            if(request.ReceiverId=="" || request.ReceiverId==null)
+            if (request.ReceiverId == "" || request.ReceiverId == null)
             {
                 request.ReceiverId = null;
             }
@@ -180,5 +186,73 @@ namespace MinimalChatApp.Business
 
             return null; // NameIdentifier claim not found
         }
+        public async Task<Group> CreateGroup(string groupname, string userlist)
+        {
+            List<UserList> request = JsonConvert.DeserializeObject<List<UserList>>(userlist);
+            await _messagerepository.insertGruop(groupname);
+            Group group = await _messagerepository.FindByGroupName(groupname);
+
+            List<UserGroup> groups = new List<UserGroup>();
+            foreach (var item in request)
+            {
+                UserGroup userGroup = new UserGroup()
+                {
+                    UserId = item.UserId,
+                    GroupId = group.GroupId,
+                    Status = 1,
+                    Createdate = DateTime.UtcNow,
+
+                };
+                groups.Add(userGroup);
+            }
+            await _messagerepository.InsertUserGroup(groups);
+
+
+            return group;
+        }
+
+        public async Task<UserStatuss> UpdateUserStatus(string userId, string status)
+        {
+            UserStatuss userStatuss = new UserStatuss
+            {
+                UserId = userId,
+                UsersStatus = status
+            };
+            var user = await _loginRepository.userFindById(userId);
+            if (user != null)
+            {
+
+                UserStatuss userStatuss1 = await _messagerepository.UpdateUserStatus(userStatuss);
+
+            }
+            return userStatuss;
+        }
+        public async Task<object> UpdateGroupUsers(string groupId, string userslist)
+        {
+            List<UserList> request = JsonConvert.DeserializeObject<List<UserList>>(userslist);
+            List<UserGroup> groups = new List<UserGroup>();
+            foreach (var item in request)
+            {
+                UserGroup userGroup = new UserGroup()
+                {
+                    UserId = item.UserId,
+                    GroupId = Guid.Parse(groupId),
+                    Status = 1,
+                    Createdate = DateTime.UtcNow,
+
+                };
+                groups.Add(userGroup);
+            }
+            await _messagerepository.InsertUserGroup(groups);
+            return new { GroupId = groupId, userGrouplist = userslist };
+
+            //return new { groupId =groupId,userGrouplist=request};
+        }
+        public async Task<List<UserGroup>> GetUserGroup(string UserId)
+        {
+            List<UserGroup> userGroups = await _messagerepository.GetUserGroup(UserId);
+            return userGroups;
+        }
     }
+
 }

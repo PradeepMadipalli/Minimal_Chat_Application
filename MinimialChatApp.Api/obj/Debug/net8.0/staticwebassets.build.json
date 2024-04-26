@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IMt2aVfZL+OaEVFFQJFQ29JOnR3gL6Y84Ub5ndIqi8Y=",
+  "Hash": "BfWWw3tLqLwj+nzOGhKfjAQTqj/9fZhOUJN25x8VR/w=",
   "Source": "MinimialChatApp.Api",
   "BasePath": "_content/MinimialChatApp.Api",
   "Mode": "Default",
@@ -15,5 +15,44 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\wwwroot\\Uploads\\271744953_3114299558808356_612943069721066328_n.jpg",
+      "SourceId": "MinimialChatApp.Api",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\wwwroot\\",
+      "BasePath": "_content/MinimialChatApp.Api",
+      "RelativePath": "Uploads/271744953_3114299558808356_612943069721066328_n.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\271744953_3114299558808356_612943069721066328_n.jpg"
+    },
+    {
+      "Identity": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\wwwroot\\Uploads\\Madipalli Pradeep.jpeg",
+      "SourceId": "MinimialChatApp.Api",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\wwwroot\\",
+      "BasePath": "_content/MinimialChatApp.Api",
+      "RelativePath": "Uploads/Madipalli Pradeep.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\Madipalli Pradeep.jpeg"
+    }
+  ]
 }

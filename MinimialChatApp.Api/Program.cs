@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.AspNetCore.SignalR;
@@ -75,23 +76,31 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         ValidAudience = builder.Configuration["Jwt:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
     };
-//}).AddGoogle(options =>
-//{
-//    options.ClientId = builder.Configuration["Google:ClientId"];
-//    options.ClientSecret = builder.Configuration["Google:ClientKey"];
+    //}).AddGoogle(options =>
+    //{
+    //    options.ClientId = builder.Configuration["Google:ClientId"];
+    //    options.ClientSecret = builder.Configuration["Google:ClientKey"];
 });
 builder.Services.AddSignalR();
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+{
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+});
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 });
-//builder.Services.AddControllers();
+
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 104857600;
+});
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name:"AllowOrigin", builder =>
+    options.AddPolicy(name: "AllowOrigin", builder =>
     {
         builder.WithOrigins("http://localhost:4200")
         .AllowAnyHeader()
@@ -122,6 +131,8 @@ app.UseRequestLogging();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.UseStaticFiles();
 
 app.MapControllers();
 

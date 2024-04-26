@@ -42,6 +42,7 @@ namespace MinimalChatApp.Business
             await _chatDBContext.SaveChangesAsync();
             return group;
         }
+
                     
     }
 }

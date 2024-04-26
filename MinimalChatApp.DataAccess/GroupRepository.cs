@@ -20,6 +20,15 @@ namespace MinimalChatApp.DataAccess
             this._chatDBContext = chatDBContext;
         }
 
+        public async Task UploadPhoto(ProfilePhoto profilePhoto)
+        {
+            await _chatDBContext.ProfilePhoto.AddAsync(profilePhoto);
+            await _chatDBContext.SaveChangesAsync();
+        }
+        public async Task<List<ProfilePhoto>> GetProfileDetails()
+        {
+           return await _chatDBContext.ProfilePhoto.ToListAsync();
 
+        }
     }
 }

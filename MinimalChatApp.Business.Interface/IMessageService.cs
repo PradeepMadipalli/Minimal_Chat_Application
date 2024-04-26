@@ -1,4 +1,5 @@
-﻿using MinimalChatApplication.Model;
+﻿using MinimalChatApp.Model;
+using MinimalChatApplication.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,9 @@ namespace MinimalChatApp.Business.Interface
         Task<Insertmessage> sendMessage(ChatMessageRequest request);
         Task<List<GetGroups>> GetGetGroups();
         string GetNameIdentifier();
+        Task<Group> CreateGroup(string groupname, string userlist);
+        Task<UserStatuss> UpdateUserStatus(string userId, string status);
+        Task<object> UpdateGroupUsers(string groupId, string userslist);
+        Task<List<UserGroup>> GetUserGroup(string UserId);
     }
 }
