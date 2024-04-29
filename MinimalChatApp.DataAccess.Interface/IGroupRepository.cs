@@ -9,7 +9,8 @@ namespace MinimalChatApp.DataAccess.Interface
 {
     public interface IGroupRepository
     {
-        Task UploadPhoto(ProfilePhoto profilePhoto);
+        Task<ProfilePhoto> UploadPhoto(ProfilePhoto request);
         Task<List<ProfilePhoto>> GetProfileDetails();
+        Task<List<UserGroup>> GetGroupOfUsers(GroupUserRequest groupId);
     }
 }

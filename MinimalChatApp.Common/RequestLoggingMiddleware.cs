@@ -37,25 +37,11 @@ namespace MinimalChatApp.Common
         public async Task Invoke(HttpContext context, ChatDBContext dbcontext)
         {
             try
-            {
-                //string token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
-
-                //if (token != null)
-                //{
-                //    var principal = ValidateToken(token);
-                //    if (princip != null)
-                //    {
-                //        context.User = principal;
-                //    }
-                //}
+            { 
                 LogRequest(context, dbcontext);
                 using var buffer = new MemoryStream();
 
                 var response = context.Response;
-
-                //response.Headers.Append("Access-Control-Allow-Origin", "*");
-                //response.Headers.Append("Access-Control-Allow-Headers", "*");
-                //response.Headers.Append("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
                 var stream = response.Body;
                 response.Body = buffer;
                 await _next(context);

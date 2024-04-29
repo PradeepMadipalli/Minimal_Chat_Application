@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\Uploads\\Madipalli Pradeep.jpeg"
     },
     {
+      "Id": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\wwwroot\\Uploads\\pradeep.jpeg",
+      "PackagePath": "staticwebassets\\Uploads\\pradeep.jpeg"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.MinimialChatApp.Api.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

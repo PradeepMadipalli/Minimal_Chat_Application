@@ -99,11 +99,11 @@ namespace MinimalChatApp.Common
             }
         }
 
-        public async Task AddGroupMember(string groupId, string memberId)
+        public async Task AddGroupMember(string groupId, string userslist)
         {
-            var stringvalues = await _messageService.UpdateGroupUsers(groupId, memberId);
-            string stringobject = JsonConvert.SerializeObject(stringvalues);    
-            await Clients.Client(Context.ConnectionId).SendAsync("AddedToGroup", stringobject);
+            var stringvalues = await _messageService.UpdateGroupUsers(groupId, userslist);
+            string stringobject = JsonConvert.SerializeObject(stringvalues);
+            await Clients.All.SendAsync("AddedToGroupMember", stringobject);
         }
 
         public async Task RemoveGroupMember(Guid groupId, string memberId)

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MinimalChatApp.Business.Interface;
+using MinimalChatApp.DataAccess.Interface;
 using MinimalChatApp.Model;
 using MinimalChatApplication.Model;
 using System;
@@ -14,11 +15,13 @@ namespace MinimalChatApp.Business
 {
     public class GroupServices : IGroupServices
     {
-        private readonly ChatDBContext _chatDBContext;
+        private readonly IGroupRepository _groupRepository;
 
-        public GroupServices(ChatDBContext chatDBContext)
+   
+
+        public GroupServices(IGroupRepository groupRepository)
         {
-            this._chatDBContext = chatDBContext;
+            _groupRepository = groupRepository;
         }
 
         public async Task<Group> CreateGroup(RequestGroup groupp)
@@ -38,11 +41,16 @@ namespace MinimalChatApp.Business
 
                 GroupName = groupp.GroupName
             };
-            _chatDBContext.Group.Add(group);
-            await _chatDBContext.SaveChangesAsync();
+            //_chatDBContext.Group.Add(group);
+            //await _chatDBContext.SaveChangesAsync();
             return group;
         }
 
-                    
+        public async Task<List<UserGroup>> GetGroupOfUsers(GroupUserRequest groupId)
+        {
+            List<UserGroup> userGroups = await _groupRepository.GetGroupOfUsers(groupId);
+            return userGroups;
+        }
+
     }
 }

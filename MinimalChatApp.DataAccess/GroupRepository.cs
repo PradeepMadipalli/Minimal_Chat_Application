@@ -20,15 +20,37 @@ namespace MinimalChatApp.DataAccess
             this._chatDBContext = chatDBContext;
         }
 
-        public async Task UploadPhoto(ProfilePhoto profilePhoto)
+        public async Task<ProfilePhoto> UploadPhoto(ProfilePhoto request)
         {
-            await _chatDBContext.ProfilePhoto.AddAsync(profilePhoto);
-            await _chatDBContext.SaveChangesAsync();
+
+            ProfilePhoto profilePhoto = new ProfilePhoto()
+            {
+                userid = request.userid,
+                PhotoPath = request.PhotoPath,
+            };
+            var profileexists = await _chatDBContext.ProfilePhoto.Where(a=>a.userid == request.userid).FirstOrDefaultAsync();
+            if(profileexists != null)
+            {
+                profileexists.PhotoPath = request.PhotoPath; 
+                await _chatDBContext.SaveChangesAsync();
+            }
+            else
+            {
+                await _chatDBContext.ProfilePhoto.AddAsync(profilePhoto);
+                await _chatDBContext.SaveChangesAsync();
+            }
+
+            return profilePhoto;
+
         }
         public async Task<List<ProfilePhoto>> GetProfileDetails()
         {
            return await _chatDBContext.ProfilePhoto.ToListAsync();
 
+        }
+        public async Task<List<UserGroup>> GetGroupOfUsers(GroupUserRequest request)
+        {
+            return await _chatDBContext.UserGroups.Where(u => u.GroupId.ToString() == request.groupId).ToListAsync();
         }
     }
 }

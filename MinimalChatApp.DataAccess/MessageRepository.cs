@@ -86,6 +86,7 @@ namespace MinimalChatApp.DataAccess
         {
             return await _context.UserGroups.Where(u => u.UserId == UserId).ToListAsync();
         }
+     
 
     }
 }

@@ -22,5 +22,6 @@ namespace MinimalChatApp.DataAccess.Interface
         Task<UserStatuss> UpdateUserStatus(UserStatuss userStatuss);
 
         Task<List<UserGroup>> GetUserGroup(string UserId);
+     
     }
 }

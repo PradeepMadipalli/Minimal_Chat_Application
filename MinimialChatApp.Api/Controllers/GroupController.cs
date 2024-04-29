@@ -8,6 +8,7 @@ using MinimalChatApp.DataAccess;
 using MinimalChatApp.DataAccess.Interface;
 using MinimalChatApp.Model;
 using MinimalChatApplication.Model;
+using System.Collections.Generic;
 using System.Security.Claims;
 
 namespace MinimialChatApp.Api.Controllers
@@ -21,14 +22,16 @@ namespace MinimialChatApp.Api.Controllers
         private readonly IGroupServices _groupServices;
         private readonly ChatDBContext chatDBContext;
         private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly ILoginServices _loginServices;
 
-        public GroupController(IGroupRepository groupRepository,IGroupServices groupServices,
-            ChatDBContext chatDBContext,IWebHostEnvironment webHostEnvironment)
+        public GroupController(IGroupRepository groupRepository, IGroupServices groupServices,
+            ChatDBContext chatDBContext, IWebHostEnvironment webHostEnvironment, ILoginServices loginServices)
         {
             this._groupRepository = groupRepository;
             this._groupServices = groupServices;
             this.chatDBContext = chatDBContext;
             this._webHostEnvironment = webHostEnvironment;
+            this._loginServices = loginServices;
         }
         [HttpPost]
         [Route("creategroup")]
@@ -38,8 +41,8 @@ namespace MinimialChatApp.Api.Controllers
 
             var Group = new Group
             {
-                GroupId=Guid.NewGuid(),
-                GroupName=group.GroupName,
+                GroupId = Guid.NewGuid(),
+                GroupName = group.GroupName,
             };
             var usergroup = new UserGroup
             {
@@ -48,8 +51,8 @@ namespace MinimialChatApp.Api.Controllers
                 Status = 1
             };
             chatDBContext.Group.Add(Group);
-            int numberOfChanges =  await chatDBContext.SaveChangesAsync();
-            if(numberOfChanges > 0)
+            int numberOfChanges = await chatDBContext.SaveChangesAsync();
+            if (numberOfChanges > 0)
             {
                 chatDBContext.UserGroups.Add(usergroup);
                 await chatDBContext.SaveChangesAsync();
@@ -70,8 +73,8 @@ namespace MinimialChatApp.Api.Controllers
             var filePath = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads", photoFile.FileName);
             ProfilePhoto profilePhoto = new ProfilePhoto
             {
-                userid=user,
-                PhotoPath=filePath,
+                userid = user,
+                PhotoPath = filePath,
             };
             await _groupRepository.UploadPhoto(profilePhoto);
             using (var stream = new FileStream(filePath, FileMode.Create))
@@ -81,6 +84,21 @@ namespace MinimialChatApp.Api.Controllers
             return Ok(filePath);
         }
 
+
+        [HttpPost]
+        [Route("GetuserGroups")]
+        public async Task<IActionResult> GetuserGroups(GroupUserRequest groupid)
+        {
+            List<UserGroup> userGroups = await _groupServices.GetGroupOfUsers(groupid);
+            List<GetUsers> userss = await _loginServices.GetGetUsers();
+            var gofu = userGroups.Join(userss, u => u.UserId, ug => ug.UserId, (u, ug) => new
+            {
+                userId = u.UserId,
+                userName = ug.UserName,
+                groupId = u.GroupId
+            }).ToList();
+            return Ok(gofu);
+        }
 
 
 

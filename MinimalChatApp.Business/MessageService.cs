@@ -45,8 +45,6 @@ namespace MinimalChatApp.Business
         {
             message.Content = request.Content;
             await _chatDBContext.SaveChangesAsync();
-
-
             return message;
         }
 
@@ -147,6 +145,7 @@ namespace MinimalChatApp.Business
         public async Task<List<GetGroups>> GetGetGroups()
         {
             var groups = await _chatDBContext.Group.ToListAsync();
+            
 
             List<GetGroups> GroupDetails = new List<GetGroups>();
 
@@ -243,8 +242,9 @@ namespace MinimalChatApp.Business
                 };
                 groups.Add(userGroup);
             }
+
             await _messagerepository.InsertUserGroup(groups);
-            return new { GroupId = groupId, userGrouplist = userslist };
+            return new { GroupId = groupId, userGrouplist = request };
 
             //return new { groupId =groupId,userGrouplist=request};
         }
@@ -253,6 +253,7 @@ namespace MinimalChatApp.Business
             List<UserGroup> userGroups = await _messagerepository.GetUserGroup(UserId);
             return userGroups;
         }
+    
     }
 
 }

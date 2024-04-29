@@ -13,6 +13,7 @@ namespace MinimalChatApp.Business.Interface
         Task<Group> CreateGroup(RequestGroup groupp);
         Task<List<GetGroups>> GetGetGroups();
         Task<Group> JoinGroup(RequestGroup groupp);
+        Task<List<UserGroup>> GetGroupOfUsers(GroupUserRequest groupId);
 
     }
 }

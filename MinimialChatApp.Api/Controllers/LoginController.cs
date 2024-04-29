@@ -108,14 +108,15 @@ namespace MinimialChatApp.Api.Controllers
             List<ProfilePhoto> profilePhotos = await _groupRepository.GetProfileDetails();
             List<GetGroups> Groupss = await _messageService.GetGetGroups();
             List<UserGroup> userGroups = await _messageService.GetUserGroup(user);
-            var users = userss.Join(profilePhotos, a => a.UserId, b => b.userid, (a, b) => new
-            {
-                UserId = a.UserId,
-                UserName = a.UserName,
-                UserEmail = a.UserEmail,
-                PhotoPath = b.PhotoPath
-            }).DefaultIfEmpty().ToList();
-            List<GetGroups> getGroups = Groupss.Join(userGroups, u => u.GroupId, g => g.GroupId.ToString(), (u, g) => new GetGroups
+            var users = userss.GroupJoin(profilePhotos, a => a.UserId, b => b.userid, (a, b) => new { a, b })
+                .SelectMany(a => a.b.DefaultIfEmpty(), (ur, ph) => new
+                {
+                    UserId = ur.a.UserId,
+                    UserName = ur.a.UserName,
+                    UserEmail = ur.a.UserEmail,
+                    PhotoPath = ph?.PhotoPath == null ? null : ph.PhotoPath,
+                }).ToList();
+            List < GetGroups > getGroups = Groupss.Join(userGroups, u => u.GroupId, g => g.GroupId.ToString(), (u, g) => new GetGroups
             {
                 GroupId = g.GroupId.ToString(),
                 GroupName = u.GroupName
