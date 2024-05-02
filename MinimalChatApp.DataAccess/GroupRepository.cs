@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MinimalChatApp.DataAccess.Interface;
 using MinimalChatApp.Model;
 using MinimalChatApplication.Model;
@@ -13,11 +16,13 @@ namespace MinimalChatApp.DataAccess
     public class GroupRepository : IGroupRepository
     {
         private readonly ChatDBContext _chatDBContext;
+        private readonly UserManager<AppUser> _userManager;
 
-        public GroupRepository(ChatDBContext chatDBContext)
+        public GroupRepository(ChatDBContext chatDBContext,UserManager<AppUser> userManager)
 
         {
-            this._chatDBContext = chatDBContext;
+            _chatDBContext = chatDBContext;
+            _userManager = userManager;
         }
 
         public async Task<ProfilePhoto> UploadPhoto(ProfilePhoto request)
@@ -51,6 +56,22 @@ namespace MinimalChatApp.DataAccess
         public async Task<List<UserGroup>> GetGroupOfUsers(GroupUserRequest request)
         {
             return await _chatDBContext.UserGroups.Where(u => u.GroupId.ToString() == request.groupId).ToListAsync();
+        }
+        public async Task<AppUser> UpdateStatus(UpdateStatus request ,string userid)
+        {
+            var user = await _userManager.FindByIdAsync(userid);
+            if(user != null)
+            {
+                user.OnlineStatus=request.Status;
+               await _userManager.UpdateAsync(user);
+            }
+            return user;
+
+        }
+        public async Task<List<OnlineStatus>> getOnlineStatus()
+        {
+            List<OnlineStatus> statuses = await _chatDBContext.OnlineStatus.ToListAsync();
+            return statuses;
         }
     }
 }

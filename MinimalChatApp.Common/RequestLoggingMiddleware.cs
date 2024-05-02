@@ -26,7 +26,8 @@ namespace MinimalChatApp.Common
         private readonly IConfiguration _configuration;
 
 
-        public RequestLoggingMiddleware(RequestDelegate next, ILogger<RequestLoggingMiddleware> logger, IHttpContextAccessor httpContextAccessor,IConfiguration configuration)
+        public RequestLoggingMiddleware(RequestDelegate next, ILogger<RequestLoggingMiddleware> logger, 
+            IHttpContextAccessor httpContextAccessor,IConfiguration configuration)
         {
             _next = next;
             _logger = logger;

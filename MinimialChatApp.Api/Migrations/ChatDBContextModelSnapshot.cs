@@ -291,6 +291,22 @@ namespace MinimialChatApp.Api.Migrations
                     b.ToTable("Logs");
                 });
 
+            modelBuilder.Entity("MinimalChatApp.Model.OnlineStatus", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OnlineStatus");
+                });
+
             modelBuilder.Entity("MinimalChatApp.Model.ProfilePhoto", b =>
                 {
                     b.Property<int>("Id")
@@ -353,8 +369,8 @@ namespace MinimialChatApp.Api.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UsersStatus")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UsersStatus")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -394,6 +410,9 @@ namespace MinimialChatApp.Api.Migrations
             modelBuilder.Entity("MinimalChatApp.Model.AppUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<int>("OnlineStatus")
+                        .HasColumnType("int");
 
                     b.HasDiscriminator().HasValue("AppUser");
                 });

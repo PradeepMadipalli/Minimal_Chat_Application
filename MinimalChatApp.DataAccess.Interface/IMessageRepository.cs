@@ -19,9 +19,11 @@ namespace MinimalChatApp.DataAccess.Interface
         Task<Group> insertGruop(string groupname);
         Task<List<UserGroup>> InsertUserGroup(List<UserGroup> usergroup);
         Task<Group> FindByGroupName(string groupname);
-        Task<UserStatuss> UpdateUserStatus(UserStatuss userStatuss);
+        Task<UserStatuss> UpdateUserStatus(string userId, int status);
 
         Task<List<UserGroup>> GetUserGroup(string UserId);
-     
+        Task<AppUser> GetUserStatus(string userId);
+
+
     }
 }

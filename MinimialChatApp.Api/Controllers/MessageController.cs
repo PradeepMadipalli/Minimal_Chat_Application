@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using MinimalChatApp.Business.Interface;
 using MinimalChatApp.Common;
 using MinimalChatApp.DataAccess.Interface;
+using MinimalChatApp.Model;
 using MinimalChatApplication.Model;
 using System.Security.Claims;
 
@@ -16,7 +17,7 @@ namespace MinimialChatApp.Api.Controllers
 {
     [Route("api/")]
     [ApiController]
-   
+
     [EnableCors("AllowOrigin")]
     public class MessageController : ControllerBase
     {
@@ -25,7 +26,7 @@ namespace MinimialChatApp.Api.Controllers
         private readonly IMessageService _messageService;
         private readonly ChatHub _chatHub;
 
-        public MessageController(ChatDBContext context, IMessageRepository messageRepository, IMessageService messageService,ChatHub chatHub)
+        public MessageController(ChatDBContext context, IMessageRepository messageRepository, IMessageService messageService, ChatHub chatHub)
         {
             _context = context;
             _messageService = messageService;
@@ -102,6 +103,7 @@ namespace MinimialChatApp.Api.Controllers
         public async Task<IActionResult> GetConversationHistory(ConversationHistoryRequest request)
         {
 
+            int userstatus = 0;
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
 
@@ -113,11 +115,22 @@ namespace MinimialChatApp.Api.Controllers
             DateTime beforeDate = request.Before ?? DateTime.UtcNow;
             var sortOrder = request.Sort == "desc" ? SortOrder.Descending : SortOrder.Ascending;
             var messages = await _messageService.GetConversationHistory(request, userId);
+
             if (messages.Count == 0)
             {
-                return NotFound(new { error = "Conversation not found." });
+                return NotFound(new { errormessages = "Conversation not found." });
             }
-            return Ok(new { messages });
+
+            return Ok(new { messages});
         }
+        [HttpGet]
+        [Route("GetCurrentstatus")]
+        public async Task<IActionResult> Getstatus()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            int status = await _messageService.GetUserStatus(userId);
+            return Ok(status);
+        }
+
     }
 }

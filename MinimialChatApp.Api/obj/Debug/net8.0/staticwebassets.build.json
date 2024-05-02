@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "njuVPlNmBb80G1KzHi7tT6t+Ty1amgvYwISxVTk55Gw=",
+  "Hash": "AA7X3aVZgPL4PDqgoz4XnyycIMtjcjxwac7W/ttq33k=",
   "Source": "MinimialChatApp.Api",
   "BasePath": "_content/MinimialChatApp.Api",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Uploads\\Madipalli Pradeep.jpeg"
+    },
+    {
+      "Identity": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\wwwroot\\Uploads\\OIP.jpg",
+      "SourceId": "MinimialChatApp.Api",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\wwwroot\\",
+      "BasePath": "_content/MinimialChatApp.Api",
+      "RelativePath": "Uploads/OIP.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\OIP.jpg"
     },
     {
       "Identity": "D:\\Minimal\\MinimalChatApp\\MinimialChatApp.Api\\wwwroot\\Uploads\\pradeep.jpeg",

@@ -81,9 +81,6 @@ namespace MinimalChatApp.Business
             }).ToListAsync();
             return messages;
         }
-
-
-
         public async Task<Message> sendMessage(MessageRequest request, string user)
         {
 
@@ -145,7 +142,7 @@ namespace MinimalChatApp.Business
         public async Task<List<GetGroups>> GetGetGroups()
         {
             var groups = await _chatDBContext.Group.ToListAsync();
-            
+
 
             List<GetGroups> GroupDetails = new List<GetGroups>();
 
@@ -210,20 +207,20 @@ namespace MinimalChatApp.Business
             return group;
         }
 
-        public async Task<UserStatuss> UpdateUserStatus(string userId, string status)
+        public async Task<UserStatuss> UpdateUserStatus(string userId, int status)
         {
             UserStatuss userStatuss = new UserStatuss
             {
                 UserId = userId,
                 UsersStatus = status
             };
-            var user = await _loginRepository.userFindById(userId);
-            if (user != null)
-            {
+            //var user = await _loginRepository.userFindById(userId);
+            //if (user != null)
+            //{
 
-                UserStatuss userStatuss1 = await _messagerepository.UpdateUserStatus(userStatuss);
+            //    UserStatuss userStatuss1 = await _messagerepository.UpdateUserStatus(userStatuss);
 
-            }
+            //}
             return userStatuss;
         }
         public async Task<object> UpdateGroupUsers(string groupId, string userslist)
@@ -253,7 +250,23 @@ namespace MinimalChatApp.Business
             List<UserGroup> userGroups = await _messagerepository.GetUserGroup(UserId);
             return userGroups;
         }
-    
+        public async Task<int> GetUserStatus(string userId)
+        {
+            int status = 0;
+
+            AppUser user = await _messagerepository.GetUserStatus(userId);
+            if (user != null)
+            {
+               status= user.OnlineStatus;
+            }
+            return status;
+        }
+        public async Task<UserStatuss> UpdateStatus(string userId, int status)
+        {
+            UserStatuss user = await _messagerepository.UpdateUserStatus(userId, status);
+            return user;
+        }
+
     }
 
 }

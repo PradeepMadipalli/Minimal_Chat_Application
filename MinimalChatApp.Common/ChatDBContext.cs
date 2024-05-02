@@ -47,6 +47,7 @@ namespace MinimalChatApplication.Model
         public DbSet<UserGroup> UserGroups { get; set; }
         public DbSet<UserStatuss> UserStatus { get; set; }
 
+        public DbSet<OnlineStatus> OnlineStatus { get; set; }
         public DbSet<ProfilePhoto> ProfilePhoto { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MinimalChatApp.Business;
 using MinimalChatApp.Business.Interface;
 using MinimalChatApp.DataAccess;
@@ -99,11 +100,59 @@ namespace MinimialChatApp.Api.Controllers
             }).ToList();
             return Ok(gofu);
         }
+        //[HttpPost]
+        //[Route("status/update")]
+        //[Authorize]
+        //public async Task<IActionResult> UpdateStatus(StatusUpdateModel model)
+        //{
 
+        //    if (!User.Identity.IsAuthenticated)
+        //    {
+        //        return Unauthorized();
+        //    }
+        //    var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        //    if (userId == null)
+        //    {
+        //        return Unauthorized();
+        //    }
+        //    var user = await _groupServices.GetUser(userId,model);
+        //    if (user == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    user.Status = model.Status;
+        //    try
+        //    {
+        //        await _dbContext.SaveChangesAsync();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return StatusCode(500);
+        //    }
+        //    return Ok();
+        //}
 
+        [HttpGet]
+        [Route("getStatus")]
+        public async Task<IActionResult> GetOnlineStatus()
+        {
+            List<OnlineStatus> onlineStatuses = await _groupServices.GetStsatus();
+            return Ok(onlineStatuses);
+        }
+        [HttpPost]
+        [Route("updateStatus")]
+        public async Task<IActionResult> UpdateStatus(UpdateStatus status)
+        {
+            {
+                var user = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
+                if (user != null)
+                {
+                    await _groupServices.UpdateStatuss(status, user);
+                }
+                return Ok("Success");
+            }
 
-
-
+        }
     }
 }

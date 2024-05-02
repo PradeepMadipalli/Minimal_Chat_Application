@@ -58,10 +58,12 @@ namespace MinimialChatApp.Api.Controllers
                     Email = register.Email,
                     UserName = register.Name,
                     SecurityStamp = Guid.NewGuid().ToString(),
+                    OnlineStatus = 1
                 };
                 var result = await _userManager.CreateAsync(user, register.Password);
                 if (result.Succeeded)
                 {
+
 
 
                     ResponseRegister responseRegister = await _loginsevice.GetResponseRegister(user, register);
@@ -78,6 +80,7 @@ namespace MinimialChatApp.Api.Controllers
             }
             else
             {
+
                 return BadRequest("Registration failed due to validation errors");
 
             }
@@ -116,7 +119,7 @@ namespace MinimialChatApp.Api.Controllers
                     UserEmail = ur.a.UserEmail,
                     PhotoPath = ph?.PhotoPath == null ? null : ph.PhotoPath,
                 }).ToList();
-            List < GetGroups > getGroups = Groupss.Join(userGroups, u => u.GroupId, g => g.GroupId.ToString(), (u, g) => new GetGroups
+            List<GetGroups> getGroups = Groupss.Join(userGroups, u => u.GroupId, g => g.GroupId.ToString(), (u, g) => new GetGroups
             {
                 GroupId = g.GroupId.ToString(),
                 GroupName = u.GroupName

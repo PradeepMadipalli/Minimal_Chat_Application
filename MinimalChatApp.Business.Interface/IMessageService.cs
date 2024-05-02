@@ -19,9 +19,11 @@ namespace MinimalChatApp.Business.Interface
         Task<List<GetGroups>> GetGetGroups();
         string GetNameIdentifier();
         Task<Group> CreateGroup(string groupname, string userlist);
-        Task<UserStatuss> UpdateUserStatus(string userId, string status);
+        Task<UserStatuss> UpdateUserStatus(string userId, int status);
         Task<object> UpdateGroupUsers(string groupId, string userslist);
         Task<List<UserGroup>> GetUserGroup(string UserId);
-        
+        Task<int> GetUserStatus(string userId);
+
+
     }
 }

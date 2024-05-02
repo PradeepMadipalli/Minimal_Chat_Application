@@ -16,10 +16,12 @@ namespace MinimalChatApp.DataAccess
     public class MessageRepository : IMessageRepository
     {
         private readonly ChatDBContext _context;
-        public MessageRepository(ChatDBContext context)
+        private readonly UserManager<AppUser> _userManager;
+
+        public MessageRepository(ChatDBContext context,UserManager<AppUser> userManager)
         {
             _context = context;
-
+            _userManager = userManager;
         }
 
         public async Task<Message> FindMessage(string MessageId)
@@ -75,18 +77,36 @@ namespace MinimalChatApp.DataAccess
         {
             return await _context.Group.Where(u => u.GroupName == groupname).SingleAsync();
         }
-        public async Task<UserStatuss> UpdateUserStatus(UserStatuss userStatuss)
+        public async Task<UserStatuss> UpdateUserStatus(string userId, int status)
         {
-           await _context.UserStatus.AddAsync(userStatuss);
+            UserStatuss user = await _context.UserStatus.Where(u => u.UserId == userId).SingleOrDefaultAsync();
+            if (user != null)
+            {
+                user.UsersStatus = status;
+                
+            }
+            else
+            {
+                user = new UserStatuss()
+                {
+                    UserId = userId,
+                    UsersStatus = status
+                };
+                await _context.UserStatus.AddAsync(user);
+            }     
             await _context.SaveChangesAsync();
-            return userStatuss;
+            return user;
 
         }
         public async Task<List<UserGroup>> GetUserGroup(string UserId)
         {
             return await _context.UserGroups.Where(u => u.UserId == UserId).ToListAsync();
         }
-     
+        public async Task<AppUser> GetUserStatus(string userId)
+        {
+            return await _userManager.FindByIdAsync(userId);
+        }
+
 
     }
 }

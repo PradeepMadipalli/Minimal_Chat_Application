@@ -134,7 +134,7 @@ namespace MinimalChatApp.Common
             await Clients.Group(groupId.ToString()).SendAsync("NewMessageAdded", message);
         }
 
-        public async Task SetStatus(string userId, string status)
+        public async Task SetStatus(string userId, int status)
         {
             UserStatuss userStatuss = await _messageService.UpdateUserStatus(userId, status);
 

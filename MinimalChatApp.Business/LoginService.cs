@@ -28,7 +28,7 @@ namespace MinimalChatApp.Business
         private readonly UserManager<AppUser> _userManager;
         private readonly ILoginRepository _loginRepository;
         public LoginService(IConfiguration configuration,
-            IHostEnvironment hostEnvironment,UserManager<AppUser> userManager, ILoginRepository loginRepository
+            IHostEnvironment hostEnvironment, UserManager<AppUser> userManager, ILoginRepository loginRepository
             )
         {
             _Configuration = configuration;
@@ -102,7 +102,8 @@ namespace MinimalChatApp.Business
             {
                 UId = user.Id,
                 Email = user.Email,
-                Name = user.UserName
+                Name = user.UserName,
+                Status = user.OnlineStatus,
             };
 
             TokenResponse response = new TokenResponse()

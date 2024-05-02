@@ -52,5 +52,19 @@ namespace MinimalChatApp.Business
             return userGroups;
         }
 
+
+       public async Task<List<OnlineStatus>> GetStsatus()
+        {
+            List<OnlineStatus> onlines = await _groupRepository.getOnlineStatus();   
+            return onlines;
+        }
+        public async Task<AppUser> UpdateStatuss(UpdateStatus status, string userid)
+        {
+            AppUser user = await _groupRepository.UpdateStatus(status, userid);
+
+            return user;
+            
+        }
+
     }
 }

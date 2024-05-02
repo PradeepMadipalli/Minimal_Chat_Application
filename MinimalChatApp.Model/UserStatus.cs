@@ -14,7 +14,7 @@ namespace MinimalChatApp.Model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string? UserId { get; set; }
-        public string? UsersStatus { get; set; }
+        public int UsersStatus { get; set; }
     }
     
 }

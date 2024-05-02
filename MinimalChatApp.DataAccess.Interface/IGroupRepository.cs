@@ -12,5 +12,8 @@ namespace MinimalChatApp.DataAccess.Interface
         Task<ProfilePhoto> UploadPhoto(ProfilePhoto request);
         Task<List<ProfilePhoto>> GetProfileDetails();
         Task<List<UserGroup>> GetGroupOfUsers(GroupUserRequest groupId);
+        //Task<AppUser> isExistUser(string userId);
+        Task<List<OnlineStatus>> getOnlineStatus();
+        Task<AppUser> UpdateStatus(UpdateStatus request, string userid);
     }
 }
