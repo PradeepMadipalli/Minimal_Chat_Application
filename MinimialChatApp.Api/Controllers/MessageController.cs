@@ -11,7 +11,11 @@ using MinimalChatApp.Common;
 using MinimalChatApp.DataAccess.Interface;
 using MinimalChatApp.Model;
 using MinimalChatApplication.Model;
+using Newtonsoft.Json.Linq;
+using System.Net.Http;
 using System.Security.Claims;
+using System.Security.Principal;
+using System.Text.Json;
 
 namespace MinimialChatApp.Api.Controllers
 {
@@ -25,12 +29,15 @@ namespace MinimialChatApp.Api.Controllers
         private readonly IMessageRepository _messageRepository;
         private readonly IMessageService _messageService;
         private readonly ChatHub _chatHub;
+        private readonly HttpClient _httpClientFactory;
 
-        public MessageController(ChatDBContext context, IMessageRepository messageRepository, IMessageService messageService, ChatHub chatHub)
+        public MessageController(ChatDBContext context, IMessageRepository messageRepository, IMessageService messageService,
+            ChatHub chatHub, HttpClient httpClientFactory)
         {
             _context = context;
             _messageService = messageService;
             _chatHub = chatHub;
+            _httpClientFactory = httpClientFactory;
             _messageRepository = messageRepository;
         }
         [HttpPost]
@@ -121,7 +128,7 @@ namespace MinimialChatApp.Api.Controllers
                 return NotFound(new { errormessages = "Conversation not found." });
             }
 
-            return Ok(new { messages});
+            return Ok(new { messages });
         }
         [HttpGet]
         [Route("GetCurrentstatus")]
@@ -130,6 +137,55 @@ namespace MinimialChatApp.Api.Controllers
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             int status = await _messageService.GetUserStatus(userId);
             return Ok(status);
+        }
+        [HttpGet]
+        [Route("search")]
+        public async Task<IActionResult> Search()
+        {
+
+            try
+            {
+                string query = "dog";
+                var _apiKey = "vaprCXWq7sKfOK0G13ACTXFWU2cbder2";
+                var url = $"https://api.giphy.com/v1/gifs/search?api_key={_apiKey}&q={query}&limit=10";
+                var response = await _httpClientFactory.GetAsync(url);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return StatusCode((int)response.StatusCode, response.ReasonPhrase);
+                }
+
+                List<GiphyGifData> giphyGifDatas = new List<GiphyGifData>();
+                var jsonString = await response.Content.ReadAsStringAsync();
+                var json = JObject.Parse(jsonString);
+
+                int gif = json["data"].Count();
+                for (int i = 0; i < gif; i++)
+                {
+                    GiphyGifData gis = new GiphyGifData
+                    {
+                        Url = json["data"][i]["images"]["preview_gif"]["url"].ToString()
+                    };
+                    giphyGifDatas.Add(gis);
+                }
+                GifResponse gifResponse = new GifResponse()
+                {
+                    Data = null
+                };
+                return Ok(giphyGifDatas);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+        [HttpPost]
+        [Route("UpdateShowOption")]
+        public async Task<IActionResult> ShowHistoryOptions(UpdateShowOptions request)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            Message message = await _messageService.ShowOptions(request.noofdays, request.messageId,userId);
+            return Ok(message);
         }
 
     }

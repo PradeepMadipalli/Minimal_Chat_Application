@@ -23,6 +23,10 @@ namespace MinimalChatApplication.Model
         [Required]
         public DateTime Timestamp { get; set; }
 
+        public int ShowOptions { get; set; }
+        public int GifImageId { get; set; }
+        public string? ThreadMessage { get; set; }
+
         public string? groupId { get; set; }=null;
         public virtual AppUser sender { get; set; }
 
@@ -38,14 +42,14 @@ namespace MinimalChatApplication.Model
     public class Groups
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
     }
 
     public class UserStatus
     {
-        public string UserId { get; set; }
-        public string StatusMessage { get; set; }
+        public string? UserId { get; set; }
+        public string? StatusMessage { get; set; }
     }
 
     public class Insertmessage
@@ -61,5 +65,9 @@ namespace MinimalChatApplication.Model
         [Required]
         public DateTime timestamp { get; set; }
         public string? groupId { get; set; }
+
+        public int showOptions { get; set; }
+        public int gifImageId { get; set; }
+        public string? threadMessage { get; set; }
     }
 }

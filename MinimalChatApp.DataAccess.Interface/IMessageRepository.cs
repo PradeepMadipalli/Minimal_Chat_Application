@@ -24,6 +24,10 @@ namespace MinimalChatApp.DataAccess.Interface
         Task<List<UserGroup>> GetUserGroup(string UserId);
         Task<AppUser> GetUserStatus(string userId);
 
+        Task<Message> sendMessage(Message message);
+        Task<UserGroup> GetUserGroupdate(string UserId,string groupid);
+        Task<Message> ShowOptionUpdate(Message message);
+
 
     }
 }

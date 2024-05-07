@@ -49,7 +49,7 @@ namespace MinimialChatApp.Api.Controllers
             {
                 UserId = group.UserId,
                 GroupId = Group.GroupId,
-                Status = 1
+                Status = 1,
             };
             chatDBContext.Group.Add(Group);
             int numberOfChanges = await chatDBContext.SaveChangesAsync();
@@ -58,7 +58,6 @@ namespace MinimialChatApp.Api.Controllers
                 chatDBContext.UserGroups.Add(usergroup);
                 await chatDBContext.SaveChangesAsync();
             }
-            //Group groupp = await _groupServices.CreateGroup(group);
             return Ok(Group);
         }
         [HttpPost]

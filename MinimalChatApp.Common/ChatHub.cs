@@ -72,11 +72,11 @@ namespace MinimalChatApp.Common
             }
 
         }
-        public async Task CreateGroup(string groupName, string userlist)
+        public async Task CreateGroup(string groupName, string userlist, string userid)
         {
             try
             {
-                Group group = await _messageService.CreateGroup(groupName, userlist);
+                Group group = await _messageService.CreateGroup(groupName, userlist,userid);
                 var stringv = new { groupId = group.GroupId, groupName = group.GroupName };
                 string groupstring = JsonConvert.SerializeObject(stringv);
                 await Clients.All.SendAsync("GroupCreated", groupstring);
@@ -99,9 +99,9 @@ namespace MinimalChatApp.Common
             }
         }
 
-        public async Task AddGroupMember(string groupId, string userslist)
+        public async Task AddGroupMember(string groupId, string userslist,string userid)
         {
-            var stringvalues = await _messageService.UpdateGroupUsers(groupId, userslist);
+            var stringvalues = await _messageService.UpdateGroupUsers(groupId, userslist,userid);
             string stringobject = JsonConvert.SerializeObject(stringvalues);
             await Clients.All.SendAsync("AddedToGroupMember", stringobject);
         }

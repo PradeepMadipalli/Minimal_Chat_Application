@@ -10,4 +10,10 @@ namespace MinimalChatApp.Model
     {
         public int Status { get; set; }
     }
+    public class UpdateShowOptions
+    {
+        public string? noofdays { get; set; }
+        public string? messageId { get; set; }
+    }
 }
+

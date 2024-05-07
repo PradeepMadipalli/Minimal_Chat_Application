@@ -387,12 +387,21 @@ namespace MinimialChatApp.Api.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("GifImageId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ReceiverId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SenderId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ShowOptions")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ThreadMessage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime2");

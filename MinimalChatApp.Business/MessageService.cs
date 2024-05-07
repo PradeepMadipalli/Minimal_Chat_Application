@@ -17,6 +17,7 @@ using MinimalChatApp.Model;
 using Newtonsoft.Json;
 using Azure.Core;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 namespace MinimalChatApp.Business
 {
@@ -64,7 +65,24 @@ namespace MinimalChatApp.Business
             }
             else
             {
-                messagesQuery = messagesQuery.Where(m => m.groupId == request.groupId);
+                UserGroup group = await _messagerepository.GetUserGroupdate(userId, request.groupId);
+                if (group != null)
+                {
+                    if (group.AddDays > 0)
+                    {
+                        DateTime newDate=  group.Createdate.AddDays(-group.AddDays);
+                        messagesQuery = messagesQuery.Where(m => (m.groupId == request.groupId && m.Timestamp > newDate));
+                    }
+                    else if (group.AddDays == 0)
+                    {
+                        messagesQuery = messagesQuery.Where(m => (m.groupId == request.groupId && m.Timestamp > group.Createdate));
+                    }
+                    else
+                    {
+                        messagesQuery = messagesQuery.Where(m => m.groupId == request.groupId);
+                    }
+                }
+
             }
 
 
@@ -77,6 +95,9 @@ namespace MinimalChatApp.Business
                 Content = m.Content,
                 Timestamp = m.Timestamp,
                 groupId = m.groupId,
+                ShowOptions = m.ShowOptions,
+                GifImageId = m.GifImageId,
+                ThreadMessage = m.ThreadMessage,
 
             }).ToListAsync();
             return messages;
@@ -100,8 +121,13 @@ namespace MinimalChatApp.Business
                 Content = request.Content,
                 Timestamp = DateTime.UtcNow,
                 groupId = request.groupId,
+                ShowOptions = request.ShowOptions,
+                GifImageId = request.GifImageId,
+                ThreadMessage = request.ThreadMessage,
+
 
             };
+          
 
             _chatDBContext.Messages.Add(message);
             await _chatDBContext.SaveChangesAsync();
@@ -114,6 +140,11 @@ namespace MinimalChatApp.Business
             {
                 request.ReceiverId = null;
             }
+
+            if (request.ThreadMessage == "" || request.ThreadMessage == null)
+            {
+                request.ThreadMessage = null;
+            }
             var message = new Message
             {
                 MessageId = Guid.NewGuid(),
@@ -121,9 +152,14 @@ namespace MinimalChatApp.Business
                 ReceiverId = request.ReceiverId,
                 Content = request.Content,
                 Timestamp = DateTime.UtcNow,
-                groupId = request.groupId
+                groupId = request.groupId,
+                ShowOptions = 0,
+                GifImageId = request.GifImageId,
+                ThreadMessage = request.ThreadMessage,
+                
 
             };
+
             var message1 = new Insertmessage
             {
                 messageId = message.MessageId,
@@ -131,11 +167,13 @@ namespace MinimalChatApp.Business
                 receiverId = request.ReceiverId,
                 content = request.Content,
                 timestamp = DateTime.UtcNow,
-                groupId = request.groupId
-            };
+                groupId = request.groupId,
+                showOptions = 0,
+                gifImageId = request.GifImageId,
+                threadMessage = request.ThreadMessage,
 
-            _chatDBContext.Messages.Add(message);
-            await _chatDBContext.SaveChangesAsync();
+            };
+            await _messagerepository.sendMessage(message);
             return message1;
         }
 
@@ -182,11 +220,11 @@ namespace MinimalChatApp.Business
 
             return null; // NameIdentifier claim not found
         }
-        public async Task<Group> CreateGroup(string groupname, string userlist)
+        public async Task<MinimalChatApp.Model.Group> CreateGroup(string groupname, string userlist, string userid)
         {
             List<UserList> request = JsonConvert.DeserializeObject<List<UserList>>(userlist);
             await _messagerepository.insertGruop(groupname);
-            Group group = await _messagerepository.FindByGroupName(groupname);
+            MinimalChatApp.Model.Group group = await _messagerepository.FindByGroupName(groupname);
 
             List<UserGroup> groups = new List<UserGroup>();
             foreach (var item in request)
@@ -200,7 +238,20 @@ namespace MinimalChatApp.Business
 
                 };
                 groups.Add(userGroup);
+
+                Message message = new Message
+                {
+                    MessageId = Guid.NewGuid(),
+                    SenderId = userid,
+                    ReceiverId = item.UserId,
+                    Content = item.UserName + " new group member add to Group",
+                    Timestamp = DateTime.UtcNow,
+                    groupId = group.GroupId.ToString(),
+                    ShowOptions = 1,
+                };
+                await _messagerepository.sendMessage(message);
             }
+
             await _messagerepository.InsertUserGroup(groups);
 
 
@@ -223,7 +274,7 @@ namespace MinimalChatApp.Business
             //}
             return userStatuss;
         }
-        public async Task<object> UpdateGroupUsers(string groupId, string userslist)
+        public async Task<object> UpdateGroupUsers(string groupId, string userslist, string userid)
         {
             List<UserList> request = JsonConvert.DeserializeObject<List<UserList>>(userslist);
             List<UserGroup> groups = new List<UserGroup>();
@@ -238,6 +289,21 @@ namespace MinimalChatApp.Business
 
                 };
                 groups.Add(userGroup);
+            }
+            foreach (var item in request)
+            {
+
+                Message message = new Message
+                {
+                    MessageId = Guid.NewGuid(),
+                    SenderId = userid,
+                    ReceiverId = item.UserId,
+                    Content = item.UserName + " new group member add to Group",
+                    Timestamp = DateTime.UtcNow,
+                    groupId = groupId,
+                    ShowOptions = 1,
+                };
+                await _messagerepository.sendMessage(message);
             }
 
             await _messagerepository.InsertUserGroup(groups);
@@ -257,7 +323,7 @@ namespace MinimalChatApp.Business
             AppUser user = await _messagerepository.GetUserStatus(userId);
             if (user != null)
             {
-               status= user.OnlineStatus;
+                status = user.OnlineStatus;
             }
             return status;
         }
@@ -265,6 +331,23 @@ namespace MinimalChatApp.Business
         {
             UserStatuss user = await _messagerepository.UpdateUserStatus(userId, status);
             return user;
+        }
+        public async Task<Message> ShowOptions(string noofdays,string messageId,string senderId)
+        {
+
+           Message message = await _messagerepository.FindMessage(messageId);
+            UserGroup group = await _messagerepository.GetUserGroupdate(senderId, message.groupId);
+            if (message != null)
+            {
+                message.ShowOptions = 0;
+            }
+            if(group!= null)
+            {
+                group.AddDays=Convert.ToInt32(noofdays);
+            }
+
+            await _messagerepository.ShowOptionUpdate(message);
+            return message;
         }
 
     }

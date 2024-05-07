@@ -18,7 +18,7 @@ namespace MinimalChatApp.DataAccess
         private readonly ChatDBContext _context;
         private readonly UserManager<AppUser> _userManager;
 
-        public MessageRepository(ChatDBContext context,UserManager<AppUser> userManager)
+        public MessageRepository(ChatDBContext context, UserManager<AppUser> userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -83,7 +83,7 @@ namespace MinimalChatApp.DataAccess
             if (user != null)
             {
                 user.UsersStatus = status;
-                
+
             }
             else
             {
@@ -93,7 +93,7 @@ namespace MinimalChatApp.DataAccess
                     UsersStatus = status
                 };
                 await _context.UserStatus.AddAsync(user);
-            }     
+            }
             await _context.SaveChangesAsync();
             return user;
 
@@ -106,7 +106,27 @@ namespace MinimalChatApp.DataAccess
         {
             return await _userManager.FindByIdAsync(userId);
         }
-
-
+        public async Task<Message> sendMessage(Message message)
+        {
+            _context.Messages.Add(message);
+            await _context.SaveChangesAsync();
+            return message;
+        }
+        public async Task<UserGroup> GetUserGroupdate(string UserId, string groupid)
+        {
+            try
+            {
+                return await _context.UserGroups.Where(u => (u.UserId == UserId && u.GroupId.ToString() == groupid)).Take(1).SingleOrDefaultAsync();
+            }catch (Exception ex)
+            {
+                throw;
+            }
+           
+        }
+        public async Task<Message> ShowOptionUpdate(Message message)
+        {
+            await _context.SaveChangesAsync();
+            return message;
+        }
     }
 }
