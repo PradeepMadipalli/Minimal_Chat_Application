@@ -87,7 +87,7 @@ namespace MinimalChatApp.Common
             var queryString = request.QueryString;
 
             var ipAddress = context.Connection.RemoteIpAddress.ToString();
-            //context.Features.Get<IHttpBodyControlFeature>().AllowSynchronousIO = true;
+            ///ontext.Features.Get<IHttpBodyControlFeature>().AllowSynchronousIO = true;
 
             string requestBody =  ReadRequestBody(context.Request); 
 

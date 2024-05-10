@@ -420,8 +420,8 @@ namespace MinimialChatApp.Api.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-                    b.Property<int>("OnlineStatus")
-                        .HasColumnType("int");
+                    b.Property<string>("OnlineStatus")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("AppUser");
                 });

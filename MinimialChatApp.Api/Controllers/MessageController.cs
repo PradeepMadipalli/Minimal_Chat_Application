@@ -25,18 +25,14 @@ namespace MinimialChatApp.Api.Controllers
     [EnableCors("AllowOrigin")]
     public class MessageController : ControllerBase
     {
-        private readonly ChatDBContext _context;
         private readonly IMessageRepository _messageRepository;
         private readonly IMessageService _messageService;
-        private readonly ChatHub _chatHub;
         private readonly HttpClient _httpClientFactory;
 
-        public MessageController(ChatDBContext context, IMessageRepository messageRepository, IMessageService messageService,
-            ChatHub chatHub, HttpClient httpClientFactory)
+        public MessageController(IMessageRepository messageRepository, IMessageService messageService,
+            HttpClient httpClientFactory)
         {
-            _context = context;
             _messageService = messageService;
-            _chatHub = chatHub;
             _httpClientFactory = httpClientFactory;
             _messageRepository = messageRepository;
         }
@@ -123,20 +119,26 @@ namespace MinimialChatApp.Api.Controllers
             var sortOrder = request.Sort == "desc" ? SortOrder.Descending : SortOrder.Ascending;
             var messages = await _messageService.GetConversationHistory(request, userId);
 
+            var popmessage = messages.Find(x => (x.ReceiverId == userId && x.groupId==request.groupId));
             if (messages.Count == 0)
             {
                 return NotFound(new { errormessages = "Conversation not found." });
             }
 
-            return Ok(new { messages });
+            return Ok(new { messages,popmessage });
         }
         [HttpGet]
         [Route("GetCurrentstatus")]
         public async Task<IActionResult> Getstatus()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            int status = await _messageService.GetUserStatus(userId);
-            return Ok(status);
+            var status = await _messageService.GetUserStatus(userId);
+            UpdateStatus updateStatus = new UpdateStatus();
+            if (status != null)
+            {
+                updateStatus.Status = status;
+            }
+            return Ok(updateStatus);
         }
         [HttpGet]
         [Route("search")]

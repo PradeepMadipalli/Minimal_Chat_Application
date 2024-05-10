@@ -15,7 +15,7 @@ namespace MinimalChatApp.Model
             Messages = new HashSet<Message>();
             Groups = new HashSet<UserGroup>();
         }
-        public int OnlineStatus { get; set; }
+        public string? OnlineStatus { get; set; }
         public ICollection<Message> Messages { get; set; }
 
         public ICollection<UserGroup> Groups { get; set; }

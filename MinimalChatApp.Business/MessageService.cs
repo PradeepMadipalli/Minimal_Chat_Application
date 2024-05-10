@@ -316,9 +316,9 @@ namespace MinimalChatApp.Business
             List<UserGroup> userGroups = await _messagerepository.GetUserGroup(UserId);
             return userGroups;
         }
-        public async Task<int> GetUserStatus(string userId)
+        public async Task<string> GetUserStatus(string userId)
         {
-            int status = 0;
+            string status = "";
 
             AppUser user = await _messagerepository.GetUserStatus(userId);
             if (user != null)

@@ -8,7 +8,7 @@ namespace MinimalChatApp.Model
 {
     public class UpdateStatus
     {
-        public int Status { get; set; }
+        public string Status { get; set; }
     }
     public class UpdateShowOptions
     {

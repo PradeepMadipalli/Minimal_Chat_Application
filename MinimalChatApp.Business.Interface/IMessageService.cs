@@ -22,7 +22,7 @@ namespace MinimalChatApp.Business.Interface
         Task<UserStatuss> UpdateUserStatus(string userId, int status);
         Task<object> UpdateGroupUsers(string groupId, string userslist,string userid);
         Task<List<UserGroup>> GetUserGroup(string UserId);
-        Task<int> GetUserStatus(string userId);
+        Task<string> GetUserStatus(string userId);
 
         Task<Message> ShowOptions(string noofdays, string messageId,string senderId);
     }

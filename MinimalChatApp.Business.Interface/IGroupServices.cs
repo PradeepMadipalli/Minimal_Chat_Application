@@ -17,6 +17,8 @@ namespace MinimalChatApp.Business.Interface
         //Task<AppUser> GetUser(string request);
         Task<List<OnlineStatus>> GetStsatus();
         Task<AppUser> UpdateStatuss(UpdateStatus status, string userid);
+        Task<List<UserGroup>> DeleteUserfromGroup(DeleteUsersFromGroup request);
+        Task<Group> EdituserGroup(EditGroupName request);
 
     }
 }

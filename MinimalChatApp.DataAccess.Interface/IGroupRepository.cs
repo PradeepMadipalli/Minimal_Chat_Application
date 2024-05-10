@@ -15,5 +15,8 @@ namespace MinimalChatApp.DataAccess.Interface
         //Task<AppUser> isExistUser(string userId);
         Task<List<OnlineStatus>> getOnlineStatus();
         Task<AppUser> UpdateStatus(UpdateStatus request, string userid);
+        Task<UserStatuss> UpdateUserStatus(UserStatuss request);
+        Task<List<UserGroup>> Deleteuserfromgroup(DeleteUsersFromGroup request);
+        Task<Group> Editgroupname(EditGroupName request);
     }
 }

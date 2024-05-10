@@ -58,7 +58,7 @@ namespace MinimialChatApp.Api.Controllers
                     Email = register.Email,
                     UserName = register.Name,
                     SecurityStamp = Guid.NewGuid().ToString(),
-                    OnlineStatus = 1
+                    OnlineStatus = "Available"
                 };
                 var result = await _userManager.CreateAsync(user, register.Password);
                 if (result.Succeeded)
@@ -111,7 +111,7 @@ namespace MinimialChatApp.Api.Controllers
             List<ProfilePhoto> profilePhotos = await _groupRepository.GetProfileDetails();
             List<GetGroups> Groupss = await _messageService.GetGetGroups();
             List<UserGroup> userGroups = await _messageService.GetUserGroup(user);
-            var users = userss.GroupJoin(profilePhotos, a => a.UserId, b => b.userid, (a, b) => new { a, b })
+            var users = userss.GroupJoin(profilePhotos, a => a.UserId, b => b.userid, (a, b) => new { a, b }) 
                 .SelectMany(a => a.b.DefaultIfEmpty(), (ur, ph) => new
                 {
                     UserId = ur.a.UserId,
@@ -119,16 +119,17 @@ namespace MinimialChatApp.Api.Controllers
                     UserEmail = ur.a.UserEmail,
                     PhotoPath = ph?.PhotoPath == null ? null : ph.PhotoPath,
                 }).ToList();
-            List<GetGroups> getGroups = Groupss.Join(userGroups, u => u.GroupId, g => g.GroupId.ToString(), (u, g) => new GetGroups
+            List<GetGroups> getGroupss = Groupss.Join(userGroups, u => u.GroupId, g => g.GroupId.ToString(), (u, g) => new GetGroups
             {
                 GroupId = g.GroupId.ToString(),
-                GroupName = u.GroupName
+                GroupName = u.GroupName,
             }).ToList();
+            List<GetGroups> getGroups = getGroupss.Distinct().ToList();
             if (users == null || Groupss == null)
             {
                 StatusCode(404, new { error = "Users not found" });
             }
-
+        
             return Ok(new { users, getGroups });
         }
 

@@ -33,4 +33,8 @@
     <ProjectReference Include="..\MinimalChatApp.Model\MinimalChatApp.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resource\UploadsNew\" />
+  </ItemGroup>
+
 </Project>
